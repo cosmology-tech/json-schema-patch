@@ -1,4 +1,4 @@
-interface JSONSchemaPatchOperation {
+export interface JSONSchemaPatchOperation {
     op: 'add' | 'remove' | 'replace' | 'addProperty' | 'removeProperty' | 'addDefinition' | 'removeDefinition';
     path: string;
     value?: any;
