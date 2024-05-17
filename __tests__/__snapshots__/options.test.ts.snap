@@ -1,0 +1,431 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JSON Schema Modification Test should modify the asset list schema and match the snapshot 1`] = `
+{
+  "$defs": {
+    "asset": {
+      "additionalProperties": false,
+      "if": {
+        "properties": {
+          "type_asset": {
+            "enum": [
+              "erc20",
+              "cw20",
+              "snip20",
+            ],
+          },
+        },
+        "required": [
+          "type_asset",
+        ],
+      },
+      "properties": {
+        "address": {
+          "description": "[OPTIONAL] The address of the asset. Only required for type_asset : cw20, snip20",
+          "type": "string",
+        },
+        "base": {
+          "description": "The base unit of the asset. Must be in denom_units.",
+          "type": "string",
+        },
+        "coingecko_id": {
+          "description": "[OPTIONAL] The coingecko id to fetch asset data from coingecko v3 api. See https://api.coingecko.com/api/v3/coins/list",
+          "type": "string",
+        },
+        "denom_units": {
+          "items": {
+            "$ref": "#/$defs/denom_unit",
+          },
+          "minContains": 1,
+          "type": "array",
+        },
+        "deprecated": {
+          "description": "[OPTIONAL] Whether the asset has been deprecated for use. For readability, it is best to omit this property unless TRUE.",
+          "type": "boolean",
+        },
+        "description": {
+          "description": "[OPTIONAL] A short description of the asset",
+          "type": "string",
+        },
+        "display": {
+          "description": "The human friendly unit of the asset. Must be in denom_units.",
+          "type": "string",
+        },
+        "images": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "image_sync": {
+                "$ref": "#/$defs/pointer",
+              },
+              "png": {
+                "format": "uri-reference",
+                "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$",
+                "type": "string",
+              },
+              "svg": {
+                "format": "uri-reference",
+                "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$",
+                "type": "string",
+              },
+              "theme": {
+                "additionalProperties": false,
+                "minProperties": 1,
+                "properties": {
+                  "circle": {
+                    "type": "boolean",
+                  },
+                  "dark_mode": {
+                    "type": "boolean",
+                  },
+                  "primary_color_hex": {
+                    "pattern": "^#[0-9a-fA-F]{6}$",
+                    "type": "string",
+                  },
+                },
+                "type": "object",
+              },
+            },
+            "type": "object",
+          },
+          "minItems": 1,
+          "type": "array",
+        },
+        "keywords": {
+          "items": {
+            "type": "string",
+          },
+          "maxContains": 20,
+          "minContains": 1,
+          "type": "array",
+        },
+        "name": {
+          "description": "The project name of the asset. For example Bitcoin.",
+          "maxLength": 42,
+          "type": "string",
+        },
+        "socials": {
+          "minProperties": 1,
+          "properties": {
+            "twitter": {
+              "format": "uri",
+              "type": "string",
+            },
+            "website": {
+              "format": "uri",
+              "type": "string",
+            },
+          },
+          "type": "object",
+        },
+        "traces": {
+          "description": "The origin of the asset, starting with the index, and capturing all transitions in form and location.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/ibc_transition",
+              },
+              {
+                "$ref": "#/$defs/ibc_cw20_transition",
+              },
+              {
+                "$ref": "#/$defs/non_ibc_transition",
+              },
+            ],
+          },
+          "minContains": 1,
+          "type": "array",
+        },
+        "type_asset": {
+          "default": "sdk.coin",
+          "description": "[OPTIONAL] The potential options for type of asset. By default, assumes sdk.coin",
+          "enum": [
+            "sdk.coin",
+            "cw20",
+            "erc20",
+            "ics20",
+            "snip20",
+            "snip25",
+            "sdk.factory",
+            "bitcoin-like",
+            "evm-base",
+            "svm-base",
+            "substrate",
+            "bitsong",
+          ],
+          "type": "string",
+        },
+      },
+      "required": [
+        "denom_units",
+        "base",
+        "display",
+        "name",
+      ],
+      "then": {
+        "required": [
+          "address",
+        ],
+      },
+      "type": "object",
+    },
+    "denom_unit": {
+      "additionalProperties": false,
+      "properties": {
+        "aliases": {
+          "items": {
+            "type": "string",
+          },
+          "minContains": 1,
+          "type": "array",
+        },
+        "denom": {
+          "type": "string",
+        },
+        "exponent": {
+          "type": "integer",
+        },
+      },
+      "required": [
+        "denom",
+        "exponent",
+      ],
+      "type": "object",
+    },
+    "ibc_cw20_transition": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "additionalProperties": false,
+          "properties": {
+            "channel_id": {
+              "description": "The chain's IBC transfer channel(, e.g., 'channel-1').",
+              "pattern": "^channel-\\d+$",
+              "type": "string",
+            },
+            "path": {
+              "description": "The port/channel/denom input string that generates the 'ibc/...' denom.",
+              "type": "string",
+            },
+            "port": {
+              "description": "The port used to transfer IBC assets; often 'transfer', but sometimes varies, e.g., for outgoing cw20 transfers.",
+              "type": "string",
+            },
+          },
+          "required": [
+            "port",
+            "channel_id",
+            "path",
+          ],
+          "type": "object",
+        },
+        "counterparty": {
+          "additionalProperties": false,
+          "properties": {
+            "base_denom": {
+              "description": "The base unit of the asset on its source platform. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform.",
+              "type": "string",
+            },
+            "chain_name": {
+              "description": "The name of the counterparty chain. (must match exactly the chain name used in the Chain Registry)",
+              "type": "string",
+            },
+            "channel_id": {
+              "description": "The counterparty IBC transfer channel(, e.g., 'channel-1').",
+              "pattern": "^channel-\\d+$",
+              "type": "string",
+            },
+            "port": {
+              "description": "The port used to transfer IBC assets; often 'transfer', but sometimes varies, e.g., for outgoing cw20 transfers.",
+              "type": "string",
+            },
+          },
+          "required": [
+            "chain_name",
+            "base_denom",
+            "port",
+            "channel_id",
+          ],
+          "type": "object",
+        },
+        "type": {
+          "enum": [
+            "ibc-cw20",
+          ],
+          "type": "string",
+        },
+      },
+      "required": [
+        "type",
+        "counterparty",
+        "chain",
+      ],
+      "type": "object",
+    },
+    "ibc_transition": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "additionalProperties": false,
+          "properties": {
+            "channel_id": {
+              "description": "The chain's IBC transfer channel(, e.g., 'channel-1').",
+              "pattern": "^channel-\\d+$",
+              "type": "string",
+            },
+            "path": {
+              "description": "The port/channel/denom input string that generates the 'ibc/...' denom.",
+              "type": "string",
+            },
+          },
+          "required": [
+            "channel_id",
+            "path",
+          ],
+          "type": "object",
+        },
+        "counterparty": {
+          "additionalProperties": false,
+          "properties": {
+            "base_denom": {
+              "description": "The base unit of the asset on its source platform. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform.",
+              "type": "string",
+            },
+            "chain_name": {
+              "description": "The name of the counterparty chain. (must match exactly the chain name used in the Chain Registry)",
+              "type": "string",
+            },
+            "channel_id": {
+              "description": "The counterparty IBC transfer channel(, e.g., 'channel-1').",
+              "pattern": "^channel-(JEnb|\\d+)$",
+              "type": "string",
+            },
+          },
+          "required": [
+            "chain_name",
+            "base_denom",
+            "channel_id",
+          ],
+          "type": "object",
+        },
+        "type": {
+          "enum": [
+            "ibc",
+          ],
+          "type": "string",
+        },
+      },
+      "required": [
+        "type",
+        "counterparty",
+        "chain",
+      ],
+      "type": "object",
+    },
+    "non_ibc_transition": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "additionalProperties": false,
+          "properties": {
+            "contract": {
+              "description": "The contract address where the transition takes place, where applicable. E.g., The Ethereum contract that locks up the asset while it's minted on another chain.",
+              "type": "string",
+            },
+          },
+          "required": [
+            "contract",
+          ],
+          "type": "object",
+        },
+        "counterparty": {
+          "additionalProperties": false,
+          "properties": {
+            "base_denom": {
+              "type": "string",
+            },
+            "chain_name": {
+              "description": "The chain or platform from which the asset originates. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'",
+              "type": "string",
+            },
+            "contract": {
+              "description": "The contract address where the transition takes place, where applicable. E.g., The Ethereum contract that locks up the asset while it's minted on another chain.",
+              "type": "string",
+            },
+          },
+          "required": [
+            "chain_name",
+            "base_denom",
+          ],
+          "type": "object",
+        },
+        "provider": {
+          "description": "The entity offering the service. E.g., 'Gravity Bridge' [Network] or 'Tether' [Company].",
+          "type": "string",
+        },
+        "type": {
+          "enum": [
+            "bridge",
+            "liquid-stake",
+            "synthetic",
+            "wrapped",
+            "additional-mintage",
+            "test-mintage",
+          ],
+          "type": "string",
+        },
+      },
+      "required": [
+        "type",
+        "counterparty",
+        "provider",
+      ],
+      "type": "object",
+    },
+    "pointer": {
+      "additionalProperties": false,
+      "description": "The (primary) key used to identify an object within the Chain Registry.",
+      "properties": {
+        "base_denom": {
+          "description": "The base denom of the asset from which the object originates. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform.",
+          "type": "string",
+        },
+        "chain_name": {
+          "description": "The chain name or platform from which the object resides. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'",
+          "type": "string",
+        },
+      },
+      "required": [
+        "chain_name",
+      ],
+      "type": "object",
+    },
+  },
+  "$id": "https://osmosis.zone/assetlists.schema.json",
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "additionalProperties": false,
+  "description": "Asset lists are a similar mechanism to allow frontends and other UIs to fetch metadata associated with Cosmos SDK denoms, especially for assets sent over IBC.",
+  "properties": {
+    "$schema": {
+      "pattern": "^(\\.\\./)+assetlist\\.schema\\.json$",
+      "type": "string",
+    },
+    "assets": {
+      "items": {
+        "$ref": "#/$defs/asset",
+      },
+      "minContains": 1,
+      "type": "array",
+    },
+    "chain_name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "chain_name",
+    "assets",
+  ],
+  "title": "Asset Lists",
+  "type": "object",
+}
+`;
