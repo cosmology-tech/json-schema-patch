@@ -130,9 +130,7 @@ export class JSONSchemaPatch {
   private removeRequiredFromProperty(path: string, propertyName: string): void {
     path = path.trim() === '/' ? '' : path;
     const requiredPath = `${path}/required`;
-    // const requiredIndex = this.schema[requiredPath]?.indexOf(propertyName);
     const requiredIndex = getValueAtPath(this.schema, requiredPath)?.indexOf(propertyName);
-    console.log(requiredIndex, requiredPath)
     if (requiredIndex > -1) {
       applyPatch(this.schema, [{ op: 'remove', path: `${requiredPath}/${requiredIndex}` }]);
     }
