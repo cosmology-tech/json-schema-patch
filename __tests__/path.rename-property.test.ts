@@ -14,7 +14,7 @@ describe('JSONSchemaPatch - renameProperty', () => {
     // Preparing operation to rename 'oldName' to 'newName'
     patcher.prepareOperation({
       op: 'renameProperty',
-      path: '/properties',
+      path: '/',
       value: { oldName: 'oldName', newName: 'newName' }
     });
 
@@ -46,7 +46,7 @@ describe('JSONSchemaPatch - renameProperty', () => {
     // Attempting to rename a non-existent property
     patcher.prepareOperation({
       op: 'renameProperty',
-      path: '/properties',
+      path: '/',
       value: { oldName: 'nonExistent', newName: 'newName' }
     });
 

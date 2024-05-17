@@ -1,5 +1,5 @@
 export interface JSONSchemaPatchOperation {
-    op: 'add' | 'remove' | 'replace' | 'addProperty' | 'removeProperty' | 'addDefinition' | 'removeDefinition';
+    op: 'add' | 'remove' | 'replace' | 'addProperty' | 'removeProperty' | 'renameProperty' | 'addDefinition' | 'removeDefinition';
     path: string;
     value?: any;
 }
@@ -15,5 +15,7 @@ export declare class JSONSchemaPatch {
     addProperty(path: string, propertyName: string, property: any): void;
     removeProperty(path: string, propertyName: string): void;
     private removeRequiredFromProperty;
+    renameProperty(path: string, oldName: string, newName: string): void;
+    private updateRequiredField;
 }
 export default JSONSchemaPatch;
