@@ -3,6 +3,217 @@
 exports[`JSONSchemaPatch Operations should correctly apply schema modifications and match snapshot 1`] = `
 {
   "$defs": {
+    "asset": {
+      "additionalProperties": false,
+      "if": {
+        "properties": {
+          "type_asset": {
+            "enum": [
+              "erc20",
+              "cw20",
+              "snip20",
+            ],
+          },
+        },
+        "required": [
+          "type_asset",
+        ],
+      },
+      "properties": {
+        "address": {
+          "description": "[OPTIONAL] The address of the asset. Only required for type_asset : cw20, snip20",
+          "type": "string",
+        },
+        "base": {
+          "description": "The base unit of the asset. Must be in denom_units.",
+          "type": "string",
+        },
+        "coingecko_id": {
+          "description": "[OPTIONAL] The coingecko id to fetch asset data from coingecko v3 api. See https://api.coingecko.com/api/v3/coins/list",
+          "type": "string",
+        },
+        "denom_units": {
+          "items": {
+            "$ref": "#/$defs/denom_unit",
+          },
+          "minContains": 1,
+          "type": "array",
+        },
+        "deprecated": {
+          "description": "[OPTIONAL] Whether the asset has been deprecated for use. For readability, it is best to omit this property unless TRUE.",
+          "type": "boolean",
+        },
+        "description": {
+          "description": "[OPTIONAL] A short description of the asset",
+          "type": "string",
+        },
+        "display": {
+          "description": "The human friendly unit of the asset. Must be in denom_units.",
+          "type": "string",
+        },
+        "extended_description": {
+          "description": "[OPTIONAL] A long description of the asset",
+          "type": "string",
+        },
+        "ibc": {
+          "additionalProperties": false,
+          "description": "[OPTIONAL] IBC Channel between src and dst between chain",
+          "properties": {
+            "dst_channel": {
+              "type": "string",
+            },
+            "source_channel": {
+              "type": "string",
+            },
+            "source_denom": {
+              "type": "string",
+            },
+          },
+          "required": [
+            "source_channel",
+            "dst_channel",
+            "source_denom",
+          ],
+          "type": "object",
+        },
+        "images": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "image_sync": {
+                "$ref": "#/$defs/pointer",
+              },
+              "png": {
+                "format": "uri-reference",
+                "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$",
+                "type": "string",
+              },
+              "svg": {
+                "format": "uri-reference",
+                "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$",
+                "type": "string",
+              },
+              "theme": {
+                "additionalProperties": false,
+                "minProperties": 1,
+                "properties": {
+                  "circle": {
+                    "type": "boolean",
+                  },
+                  "dark_mode": {
+                    "type": "boolean",
+                  },
+                  "primary_color_hex": {
+                    "pattern": "^#[0-9a-fA-F]{6}$",
+                    "type": "string",
+                  },
+                },
+                "type": "object",
+              },
+            },
+            "type": "object",
+          },
+          "minItems": 1,
+          "type": "array",
+        },
+        "keywords": {
+          "items": {
+            "type": "string",
+          },
+          "maxContains": 20,
+          "minContains": 1,
+          "type": "array",
+        },
+        "logo_URIs": {
+          "additionalProperties": false,
+          "properties": {
+            "png": {
+              "format": "uri-reference",
+              "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$",
+              "type": "string",
+            },
+            "svg": {
+              "format": "uri-reference",
+              "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$",
+              "type": "string",
+            },
+          },
+          "type": "object",
+        },
+        "name": {
+          "description": "The project name of the asset. For example Bitcoin.",
+          "maxLength": 42,
+          "type": "string",
+        },
+        "newDescription": {
+          "description": "A new description property",
+          "type": "string",
+        },
+        "socials": {
+          "minProperties": 1,
+          "properties": {
+            "twitter": {
+              "format": "uri",
+              "type": "string",
+            },
+            "website": {
+              "format": "uri",
+              "type": "string",
+            },
+          },
+          "type": "object",
+        },
+        "traces": {
+          "description": "The origin of the asset, starting with the index, and capturing all transitions in form and location.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/ibc_transition",
+              },
+              {
+                "$ref": "#/$defs/ibc_cw20_transition",
+              },
+              {
+                "$ref": "#/$defs/non_ibc_transition",
+              },
+            ],
+          },
+          "minContains": 1,
+          "type": "array",
+        },
+        "type_asset": {
+          "default": "sdk.coin",
+          "description": "[OPTIONAL] The potential options for type of asset. By default, assumes sdk.coin",
+          "enum": [
+            "sdk.coin",
+            "cw20",
+            "erc20",
+            "ics20",
+            "snip20",
+            "snip25",
+            "sdk.factory",
+            "bitcoin-like",
+            "evm-base",
+            "svm-base",
+            "substrate",
+            "bitsong",
+          ],
+          "type": "string",
+        },
+      },
+      "required": [
+        "denom_units",
+        "base",
+        "display",
+        "name",
+      ],
+      "then": {
+        "required": [
+          "address",
+        ],
+      },
+      "type": "object",
+    },
     "denom_unit": {
       "additionalProperties": false,
       "properties": {
@@ -250,6 +461,9 @@ exports[`JSONSchemaPatch Operations should correctly apply schema modifications 
       "type": "string",
     },
     "assets": {
+      "items": {
+        "$ref": "#/$defs/asset",
+      },
       "minContains": 1,
       "type": "array",
     },

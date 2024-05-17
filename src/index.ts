@@ -1,7 +1,7 @@
 import { applyPatch, Operation } from 'fast-json-patch';
 
 export interface JSONSchemaPatchOperation {
-  op: 'add' | 'remove' | 'replace' | 'addProperty' | 'removeProperty' | 'addDefinition' | 'removeDefinition';
+  op: 'add' | 'remove' | 'replace' | 'addProperty' | 'removeProperty' | 'renameProperty' | 'addDefinition' | 'removeDefinition';
   path: string;
   value?: any;
 }
@@ -37,11 +37,13 @@ export class JSONSchemaPatch {
         case 'removeProperty':
           this.removeProperty(op.path, op.value);
           break;
+        case 'renameProperty':
+          this.renameProperty(op.path, op.value.oldName, op.value.newName);
         case 'addDefinition':
           this.addDefinition(op.path, op.value);
           break;
         case 'removeDefinition':
-          this.removeDefinition(op.path);
+          this.removeDefinition(op.value);
           break;
         default:
           // Standard operations will be processed later
@@ -135,6 +137,32 @@ export class JSONSchemaPatch {
       applyPatch(this.schema, [{ op: 'remove', path: `${requiredPath}/${requiredIndex}` }]);
     }
   }
+
+  renameProperty(path: string, oldName: string, newName: string): void {
+    const propertyPath = `${path}/properties/${oldName}`;
+    const newPath = `${path}/properties/${newName}`;
+    const propertyValue = getValueAtPath(this.schema, propertyPath);
+    if (propertyValue) {
+      applyPatch(this.schema, [{ op: 'remove', path: propertyPath }]);
+      applyPatch(this.schema, [{ op: 'add', path: newPath, value: propertyValue }]);
+      this.updateRequiredField(path, oldName, newName);
+    }
+  }
+
+  private updateRequiredField(path: string, oldName: string, newName: string): void {
+    const requiredPath = `${path}/required`;
+    const requiredArray = getValueAtPath(this.schema, requiredPath);
+    if (requiredArray && requiredArray.includes(oldName)) {
+      const index = requiredArray.indexOf(oldName);
+      if (index !== -1) {
+        applyPatch(this.schema, [
+          { op: 'remove', path: `${requiredPath}/${index}` },
+          { op: 'add', path: `${requiredPath}/-`, value: newName }
+        ]);
+      }
+    }
+  }
+
 }
 
 export default JSONSchemaPatch;
