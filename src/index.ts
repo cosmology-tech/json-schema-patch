@@ -17,7 +17,7 @@ function getValueAtPath(obj, path) {
 }
 
 
-class JSONSchemaPatch {
+export class JSONSchemaPatch {
   private ops: JSONSchemaPatchOperation[] = [];
 
   constructor(public schema: any) { }

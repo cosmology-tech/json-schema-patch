@@ -3,7 +3,7 @@ interface JSONSchemaPatchOperation {
     path: string;
     value?: any;
 }
-declare class JSONSchemaPatch {
+export declare class JSONSchemaPatch {
     schema: any;
     private ops;
     constructor(schema: any);

@@ -19,7 +19,7 @@ npm install json-schema-patch
 ### import the `JSONSchemaPatch` class
 
 ```js
-import JSONSchemaPatch from 'path-to-json-schema-patch';
+import { JSONSchemaPatch } from 'path-to-json-schema-patch';
 ```
 
 ### Create an instance

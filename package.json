@@ -1,6 +1,6 @@
 {
   "name": "json-schema-patch",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "json-schema-patch",
   "author": "Dan Lynch <pyramation@gmail.com>",
   "homepage": "https://github.com/cosmology-tech/json-schema-patch#readme",
