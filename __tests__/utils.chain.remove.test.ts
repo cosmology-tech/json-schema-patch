@@ -1,23 +1,19 @@
 
 import chain from '../__fixtures__/chain.schema.json';
-import { createJSONSchemaPatchOperations, findAllProps } from '../src/utils';
 import JSONSchemaPatch from '../src';
 
 function camelCaseTransform(key: string): string {
   return key.replace(/[-_\s]+(.)?/g, (_, c) => c ? c.toUpperCase() : '');
 }
 
-it('findAllProps', () => {
-  expect(findAllProps(chain)).toMatchSnapshot();
-})
 
-
-it('createJSONSchemaPatchOperations', () => {
-  expect(createJSONSchemaPatchOperations(findAllProps(chain), camelCaseTransform)).toMatchSnapshot();
-})
-
-it('JSONSchemaPatch transformer', () => {
+it('JSONSchemaPatch transformer w excludes', () => {
   const patcher = new JSONSchemaPatch(chain);
+  patcher.prepareOperation({
+    op: 'remove',
+    path: '/properties/images/items/properties/image_sync'
+  });
+  // patcher.applyPatch();
   patcher.transform(camelCaseTransform);
   patcher.applyPatch();
   expect(patcher.schema).toMatchSnapshot();

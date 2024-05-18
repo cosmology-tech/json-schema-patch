@@ -86,6 +86,15 @@ export class JSONSchemaPatch {
         case 'rename':
           this.rename(op.path, op.value);
           break;
+        case 'replace':
+          this.replace(op.path, op.value);
+          break;
+        case 'add':
+          this.add(op.path, op.value);
+          break;
+        case 'remove':
+          this.remove(op.path);
+          break;
         case 'addDefinition':
           this.addDefinition(op.path, op.value);
           break;
@@ -93,14 +102,9 @@ export class JSONSchemaPatch {
           this.removeDefinition(op.value);
           break;
         default:
-          // Standard operations will be processed later
-          break;
+          throw new Error('OP not supported!');
       }
     });
-
-    // Apply only standard operations using fast-json-patch
-    const standardOps = ops.filter(op => ['add', 'remove', 'replace'].includes(op.op));
-    this.schema = applyPatch(this.schema, standardOps as Operation[]).newDocument;
 
     // Reset the operations array after application
     this.ops = [];
@@ -190,7 +194,7 @@ export class JSONSchemaPatch {
     const propertyPath = sanitizeJsonPath(`${path}/properties/${oldName}`);
     const newPath = sanitizeJsonPath(`${path}/properties/${newName}`);
     const propertyValue = getValueAtPath(this.schema, propertyPath);
-    if (propertyValue) {
+    if (typeof propertyValue !== 'undefined') {
       applyPatch(this.schema, [{ op: 'remove', path: propertyPath }]);
       applyPatch(this.schema, [{ op: 'add', path: newPath, value: propertyValue }]);
       this.updateRequiredField(path, oldName, newName);
@@ -200,9 +204,27 @@ export class JSONSchemaPatch {
   rename(path: string, value: string): void {
     const newPath = sanitizeJsonPath(`${dirname(path)}/${value}`);
     const currentValue = getValueAtPath(this.schema, path);
-    if (currentValue) {
+    if (typeof currentValue !== 'undefined') {
       applyPatch(this.schema, [{ op: 'remove', path }]);
       applyPatch(this.schema, [{ op: 'add', path: newPath, value: currentValue }]);
+    }
+  }
+
+  replace(path: string, value: string): void {
+    const currentValue = getValueAtPath(this.schema, path);
+    if (typeof currentValue !== 'undefined') {
+      applyPatch(this.schema, [{ op: 'replace', path, value }]);
+    }
+  }
+
+  add(path: string, value: string): void {
+    applyPatch(this.schema, [{ op: 'add', path, value }]);
+  }
+
+  remove(path: string): void {
+    const currentValue = getValueAtPath(this.schema, path);
+    if (typeof currentValue !== 'undefined') {
+      applyPatch(this.schema, [{ op: 'remove', path }]);
     }
   }
 

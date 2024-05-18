@@ -1,5 +1,6 @@
+import { TransformFunction } from './utils';
 export interface JSONSchemaPatchOperation {
-    op: 'add' | 'remove' | 'replace' | 'addProperty' | 'removeProperty' | 'renameProperty' | 'addDefinition' | 'removeDefinition';
+    op: 'add' | 'remove' | 'replace' | 'rename' | 'addProperty' | 'removeProperty' | 'renameProperty' | 'addDefinition' | 'removeDefinition';
     path: string;
     value?: any;
 }
@@ -9,6 +10,7 @@ export declare class JSONSchemaPatch {
     private ops;
     constructor(schema: any);
     prepareOperation(op: JSONSchemaPatchOperation): void;
+    transform(transformFunction: TransformFunction): void;
     applyPatch(): any;
     addDefinition(name: string, definition: any): void;
     removeDefinition(name: string): void;
@@ -17,6 +19,10 @@ export declare class JSONSchemaPatch {
     removeProperty(path: string, propertyName: string): void;
     private removeRequiredFromProperty;
     renameProperty(path: string, oldName: string, newName: string): void;
+    rename(path: string, value: string): void;
+    replace(path: string, value: string): void;
+    add(path: string, value: string): void;
+    remove(path: string): void;
     private updateRequiredField;
 }
 export default JSONSchemaPatch;

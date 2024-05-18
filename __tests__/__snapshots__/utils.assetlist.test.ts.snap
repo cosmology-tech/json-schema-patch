@@ -20,6 +20,14 @@ exports[`createJSONSchemaPatchOperations 1`] = `
   },
   {
     "op": "renameProperty",
+    "path": "/$defs/asset/properties/images/items",
+    "value": {
+      "newName": "imageSync",
+      "oldName": "image_sync",
+    },
+  },
+  {
+    "op": "renameProperty",
     "path": "/$defs/asset/properties/ibc",
     "value": {
       "newName": "sourceChannel",
@@ -123,11 +131,6 @@ exports[`createJSONSchemaPatchOperations 1`] = `
     },
   },
   {
-    "op": "replace",
-    "path": "/$defs/asset/properties/denom_units/items/$ref",
-    "value": "#/$defs/denomUnit",
-  },
-  {
     "op": "renameProperty",
     "path": "/$defs/asset",
     "value": {
@@ -184,14 +187,6 @@ exports[`createJSONSchemaPatchOperations 1`] = `
     },
   },
   {
-    "op": "renameProperty",
-    "path": "",
-    "value": {
-      "newName": "chainName",
-      "oldName": "chain_name",
-    },
-  },
-  {
     "op": "rename",
     "path": "/$defs/denom_unit",
     "value": "denomUnit",
@@ -210,6 +205,19 @@ exports[`createJSONSchemaPatchOperations 1`] = `
     "op": "rename",
     "path": "/$defs/non_ibc_transition",
     "value": "nonIbcTransition",
+  },
+  {
+    "op": "renameProperty",
+    "path": "",
+    "value": {
+      "newName": "chainName",
+      "oldName": "chain_name",
+    },
+  },
+  {
+    "op": "replace",
+    "path": "/$defs/asset/properties/denomUnits/items/$ref",
+    "value": "#/$defs/denomUnit",
   },
 ]
 `;
@@ -235,6 +243,11 @@ exports[`findAllProps 1`] = `
     "name": "#/$defs/pointer",
     "path": "/$defs/asset/properties/images/items/properties/image_sync",
     "type": "$ref",
+  },
+  {
+    "name": "image_sync",
+    "path": "/$defs/asset/properties/images/items/properties/image_sync",
+    "type": "property",
   },
   {
     "name": "png",
@@ -370,6 +383,11 @@ exports[`findAllProps 1`] = `
     "name": "#/$defs/denom_unit",
     "path": "/$defs/asset/properties/denom_units/items",
     "type": "$ref",
+  },
+  {
+    "name": "items",
+    "path": "/$defs/asset/properties/denom_units/items",
+    "type": "property",
   },
   {
     "name": "items",
@@ -555,6 +573,11 @@ exports[`findAllProps 1`] = `
     "name": "#/$defs/asset",
     "path": "/properties/assets/items",
     "type": "$ref",
+  },
+  {
+    "name": "items",
+    "path": "/properties/assets/items",
+    "type": "property",
   },
   {
     "name": "$schema",

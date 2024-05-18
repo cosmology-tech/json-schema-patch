@@ -1,5 +1,742 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`JSONSchemaPatch transformer 1`] = `
+{
+  "$defs": {
+    "endpoint": {
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "type": "string",
+        },
+        "archive": {
+          "default": false,
+          "type": "boolean",
+        },
+        "provider": {
+          "type": "string",
+        },
+      },
+      "required": [
+        "address",
+      ],
+      "type": "object",
+    },
+    "explorer": {
+      "additionalProperties": false,
+      "properties": {
+        "accountPage": {
+          "type": "string",
+        },
+        "kind": {
+          "type": "string",
+        },
+        "txPage": {
+          "type": "string",
+        },
+        "url": {
+          "type": "string",
+        },
+      },
+      "type": "object",
+    },
+    "feeToken": {
+      "additionalProperties": false,
+      "properties": {
+        "averageGasPrice": {
+          "type": "number",
+        },
+        "denom": {
+          "type": "string",
+        },
+        "fixedMinGasPrice": {
+          "type": "number",
+        },
+        "gasCosts": {
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "cosmosSend": {
+              "type": "number",
+            },
+            "ibcTransfer": {
+              "type": "number",
+            },
+          },
+          "type": "object",
+        },
+        "highGasPrice": {
+          "type": "number",
+        },
+        "lowGasPrice": {
+          "type": "number",
+        },
+      },
+      "required": [
+        "denom",
+      ],
+      "type": "object",
+    },
+    "peer": {
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "type": "string",
+        },
+        "id": {
+          "type": "string",
+        },
+        "provider": {
+          "type": "string",
+        },
+      },
+      "required": [
+        "id",
+        "address",
+      ],
+      "type": "object",
+    },
+    "pointer": {
+      "additionalProperties": false,
+      "description": "The (primary) key used to identify an object within the Chain Registry.",
+      "properties": {
+        "baseDenom": {
+          "description": "The base denom of the asset from which the object originates. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform.",
+          "type": "string",
+        },
+        "chainName": {
+          "description": "The chain name or platform from which the object resides. E.g., 'cosmoshub', 'ethereum', 'forex', or 'nasdaq'",
+          "type": "string",
+        },
+      },
+      "required": [
+        "chainName",
+      ],
+      "type": "object",
+    },
+    "stakingToken": {
+      "additionalProperties": false,
+      "properties": {
+        "denom": {
+          "type": "string",
+        },
+      },
+      "required": [
+        "denom",
+      ],
+      "type": "object",
+    },
+  },
+  "$id": "https://sikka.tech/chain.schema.json",
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "additionalProperties": false,
+  "description": "Chain.json is a metadata file that contains information about a blockchain.",
+  "properties": {
+    "$schema": {
+      "pattern": "^(\\.\\./)+chain\\.schema\\.json$",
+      "type": "string",
+    },
+    "alternativeSlip44s": {
+      "items": {
+        "type": "number",
+      },
+      "type": "array",
+    },
+    "apis": {
+      "additionalProperties": false,
+      "properties": {
+        "evm-http-jsonrpc": {
+          "items": {
+            "$ref": "#/$defs/endpoint",
+          },
+          "type": "array",
+        },
+        "grpc": {
+          "items": {
+            "$ref": "#/$defs/endpoint",
+          },
+          "type": "array",
+        },
+        "grpc-web": {
+          "items": {
+            "$ref": "#/$defs/endpoint",
+          },
+          "type": "array",
+        },
+        "rest": {
+          "items": {
+            "$ref": "#/$defs/endpoint",
+          },
+          "type": "array",
+        },
+        "rpc": {
+          "items": {
+            "$ref": "#/$defs/endpoint",
+          },
+          "type": "array",
+        },
+        "wss": {
+          "items": {
+            "$ref": "#/$defs/endpoint",
+          },
+          "type": "array",
+        },
+      },
+      "type": "object",
+    },
+    "bech32Config": {
+      "additionalProperties": false,
+      "description": "Used to override the bech32_prefix for specific uses.",
+      "minProperties": 1,
+      "properties": {
+        "bech32PrefixAccAddr": {
+          "description": "e.g., 'cosmos'",
+          "type": "string",
+        },
+        "bech32PrefixAccPub": {
+          "description": "e.g., 'cosmospub'",
+          "type": "string",
+        },
+        "bech32PrefixConsAddr": {
+          "description": "e.g., 'cosmosvalcons'",
+          "type": "string",
+        },
+        "bech32PrefixConsPub": {
+          "description": "e.g., 'cosmosvalconspub'",
+          "type": "string",
+        },
+        "bech32PrefixValAddr": {
+          "description": "e.g., 'cosmosvaloper'",
+          "type": "string",
+        },
+        "bech32PrefixValPub": {
+          "description": "e.g., 'cosmosvaloperpub'",
+          "type": "string",
+        },
+      },
+      "type": "object",
+    },
+    "bech32Prefix": {
+      "description": "The default prefix for the human-readable part of addresses that identifies the coin type. Must be registered with SLIP-0173. E.g., 'cosmos'",
+      "type": "string",
+    },
+    "chainId": {
+      "type": "string",
+    },
+    "chainName": {
+      "pattern": "[a-z0-9]+",
+      "type": "string",
+    },
+    "codebase": {
+      "additionalProperties": false,
+      "properties": {
+        "binaries": {
+          "additionalProperties": false,
+          "properties": {
+            "darwin/amd64": {
+              "format": "uri",
+              "type": "string",
+            },
+            "darwin/arm64": {
+              "format": "uri",
+              "type": "string",
+            },
+            "linux/amd64": {
+              "format": "uri",
+              "type": "string",
+            },
+            "linux/arm64": {
+              "format": "uri",
+              "type": "string",
+            },
+            "windows/amd64": {
+              "format": "uri",
+              "type": "string",
+            },
+            "windows/arm64": {
+              "format": "uri",
+              "type": "string",
+            },
+          },
+          "type": "object",
+        },
+        "compatibleVersions": {
+          "items": {
+            "type": "string",
+          },
+          "type": "array",
+        },
+        "consensus": {
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "enum": [
+                "tendermint",
+                "cometbft",
+                "sei-tendermint",
+              ],
+              "type": "string",
+            },
+            "version": {
+              "type": "string",
+            },
+          },
+          "required": [
+            "type",
+          ],
+          "type": "object",
+        },
+        "cosmosSdkVersion": {
+          "type": "string",
+        },
+        "cosmwasmEnabled": {
+          "type": "boolean",
+        },
+        "cosmwasmPath": {
+          "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
+          "pattern": "^\\$HOME.*$",
+          "type": "string",
+        },
+        "cosmwasmVersion": {
+          "type": "string",
+        },
+        "genesis": {
+          "additionalProperties": false,
+          "properties": {
+            "genesisUrl": {
+              "format": "uri",
+              "type": "string",
+            },
+            "icsCcvUrl": {
+              "format": "uri",
+              "type": "string",
+            },
+            "name": {
+              "type": "string",
+            },
+          },
+          "required": [
+            "genesisUrl",
+          ],
+          "type": "object",
+        },
+        "gitRepo": {
+          "format": "uri",
+          "type": "string",
+        },
+        "goVersion": {
+          "description": "Minimum accepted go version to build the binary.",
+          "pattern": "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$",
+          "type": "string",
+        },
+        "ibcGoVersion": {
+          "type": "string",
+        },
+        "icsEnabled": {
+          "description": "List of IBC apps (usually corresponding to a ICS standard) which have been enabled on the network.",
+          "items": {
+            "description": "IBC app or ICS standard.",
+            "enum": [
+              "ics20-1",
+              "ics27-1",
+              "mauth",
+            ],
+            "type": "string",
+          },
+          "type": "array",
+        },
+        "recommendedVersion": {
+          "type": "string",
+        },
+        "versions": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "binaries": {
+                "additionalProperties": false,
+                "properties": {
+                  "darwin/amd64": {
+                    "format": "uri",
+                    "type": "string",
+                  },
+                  "darwin/arm64": {
+                    "format": "uri",
+                    "type": "string",
+                  },
+                  "linux/amd64": {
+                    "format": "uri",
+                    "type": "string",
+                  },
+                  "linux/arm64": {
+                    "format": "uri",
+                    "type": "string",
+                  },
+                  "windows/amd64": {
+                    "format": "uri",
+                    "type": "string",
+                  },
+                  "windows/arm64": {
+                    "format": "uri",
+                    "type": "string",
+                  },
+                },
+                "type": "object",
+              },
+              "compatibleVersions": {
+                "items": {
+                  "type": "string",
+                },
+                "type": "array",
+              },
+              "consensus": {
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "enum": [
+                      "tendermint",
+                      "cometbft",
+                      "sei-tendermint",
+                    ],
+                    "type": "string",
+                  },
+                  "version": {
+                    "type": "string",
+                  },
+                },
+                "required": [
+                  "type",
+                ],
+                "type": "object",
+              },
+              "cosmosSdkVersion": {
+                "type": "string",
+              },
+              "cosmwasmEnabled": {
+                "type": "boolean",
+              },
+              "cosmwasmPath": {
+                "description": "Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm",
+                "pattern": "^\\$HOME.*$",
+                "type": "string",
+              },
+              "cosmwasmVersion": {
+                "type": "string",
+              },
+              "goVersion": {
+                "description": "Minimum accepted go version to build the binary.",
+                "pattern": "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$",
+                "type": "string",
+              },
+              "height": {
+                "description": "Block Height",
+                "type": "number",
+              },
+              "ibcGoVersion": {
+                "type": "string",
+              },
+              "icsEnabled": {
+                "description": "List of IBC apps (usually corresponding to a ICS standard) which have been enabled on the network.",
+                "items": {
+                  "description": "IBC app or ICS standard.",
+                  "enum": [
+                    "ics20-1",
+                    "ics27-1",
+                    "mauth",
+                  ],
+                  "type": "string",
+                },
+                "type": "array",
+              },
+              "name": {
+                "description": "Official Upgrade Name",
+                "type": "string",
+              },
+              "nextVersionName": {
+                "description": "[Optional] Name of the following version",
+                "type": "string",
+              },
+              "previousVersionName": {
+                "description": "[Optional] Name of the previous version",
+                "type": "string",
+              },
+              "proposal": {
+                "description": "Proposal that will officially signal community acceptance of the upgrade.",
+                "type": "number",
+              },
+              "recommendedVersion": {
+                "type": "string",
+              },
+              "tag": {
+                "description": "Git Upgrade Tag",
+                "type": "string",
+              },
+            },
+            "required": [
+              "name",
+            ],
+            "type": "object",
+          },
+          "type": "array",
+        },
+      },
+      "type": "object",
+    },
+    "daemonName": {
+      "type": "string",
+    },
+    "description": {
+      "maxLength": 3000,
+      "type": "string",
+    },
+    "explorers": {
+      "items": {
+        "$ref": "#/$defs/explorer",
+      },
+      "type": "array",
+    },
+    "extraCodecs": {
+      "items": {
+        "enum": [
+          "ethermint",
+          "injective",
+        ],
+        "type": "string",
+        "uniqueItems": true,
+      },
+      "type": "array",
+    },
+    "fees": {
+      "additionalProperties": false,
+      "properties": {
+        "feeTokens": {
+          "items": {
+            "$ref": "#/$defs/feeToken",
+          },
+          "type": "array",
+        },
+      },
+      "required": [
+        "feeTokens",
+      ],
+      "type": "object",
+    },
+    "images": {
+      "items": {
+        "additionalProperties": false,
+        "anyOf": [
+          {
+            "required": [
+              "png",
+            ],
+          },
+          {
+            "required": [
+              "svg",
+            ],
+          },
+        ],
+        "if": {
+          "properties": {
+            "layout": {
+              "const": "logo",
+            },
+          },
+          "required": [
+            "layout",
+          ],
+        },
+        "properties": {
+          "imageSync": {
+            "$ref": "#/$defs/pointer",
+          },
+          "layout": {
+            "description": "logomark == icon only; logotype == text only; logo == icon + text.",
+            "enum": [
+              "logo",
+              "logomark",
+              "logotype",
+            ],
+            "type": "string",
+          },
+          "png": {
+            "format": "uri-reference",
+            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$",
+            "type": "string",
+          },
+          "svg": {
+            "format": "uri-reference",
+            "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$",
+            "type": "string",
+          },
+          "textPosition": {
+            "description": "Indicates in which position the text is placed, in case the layout is 'icon' type, it's required only in this case.",
+            "enum": [
+              "top",
+              "bottom",
+              "left",
+              "right",
+              "integrated",
+            ],
+            "type": "string",
+          },
+          "theme": {
+            "additionalProperties": false,
+            "minProperties": 1,
+            "properties": {
+              "circle": {
+                "type": "boolean",
+              },
+              "darkMode": {
+                "type": "boolean",
+              },
+              "primaryColorHex": {
+                "pattern": "^#[0-9a-fA-F]{6}$",
+                "type": "string",
+              },
+            },
+            "type": "object",
+          },
+        },
+        "then": {
+          "required": [
+            "text_position",
+          ],
+        },
+        "type": "object",
+      },
+      "type": "array",
+    },
+    "keyAlgos": {
+      "items": {
+        "enum": [
+          "secp256k1",
+          "ethsecp256k1",
+          "ed25519",
+          "sr25519",
+          "bn254",
+        ],
+        "type": "string",
+        "uniqueItems": true,
+      },
+      "type": "array",
+    },
+    "keywords": {
+      "items": {
+        "type": "string",
+      },
+      "maxContains": 20,
+      "type": "array",
+    },
+    "logoURIs": {
+      "additionalProperties": false,
+      "properties": {
+        "png": {
+          "format": "uri-reference",
+          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.png$",
+          "type": "string",
+        },
+        "svg": {
+          "format": "uri-reference",
+          "pattern": "^https://raw\\.githubusercontent\\.com/cosmos/chain-registry/master/(|testnets/|_non-cosmos/)[a-z0-9]+/images/.+\\.svg$",
+          "type": "string",
+        },
+      },
+      "type": "object",
+    },
+    "networkType": {
+      "enum": [
+        "mainnet",
+        "testnet",
+        "devnet",
+      ],
+    },
+    "nodeHome": {
+      "type": "string",
+    },
+    "peers": {
+      "additionalProperties": false,
+      "properties": {
+        "persistentPeers": {
+          "items": {
+            "$ref": "#/$defs/peer",
+          },
+          "type": "array",
+        },
+        "seeds": {
+          "items": {
+            "$ref": "#/$defs/peer",
+          },
+          "type": "array",
+        },
+      },
+      "type": "object",
+    },
+    "preForkChainName": {
+      "pattern": "[a-z0-9]+",
+      "type": "string",
+    },
+    "prettyName": {
+      "type": "string",
+    },
+    "slip44": {
+      "type": "number",
+    },
+    "staking": {
+      "additionalProperties": false,
+      "properties": {
+        "lockDuration": {
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "blocks": {
+              "description": "The number of blocks for which the staked tokens are locked.",
+              "type": "number",
+            },
+            "time": {
+              "description": "The approximate time for which the staked tokens are locked.",
+              "type": "string",
+            },
+          },
+          "type": "object",
+        },
+        "stakingTokens": {
+          "items": {
+            "$ref": "#/$defs/stakingToken",
+          },
+          "type": "array",
+        },
+      },
+      "required": [
+        "stakingTokens",
+      ],
+      "type": "object",
+    },
+    "status": {
+      "enum": [
+        "live",
+        "upcoming",
+        "killed",
+      ],
+    },
+    "updateLink": {
+      "format": "uri",
+      "type": "string",
+    },
+    "website": {
+      "format": "uri",
+      "type": "string",
+    },
+  },
+  "required": [
+    "chainName",
+    "chainId",
+    "bech32Prefix",
+  ],
+  "title": "Chain",
+  "type": "object",
+}
+`;
+
 exports[`createJSONSchemaPatchOperations 1`] = `
 [
   {
@@ -139,14 +876,12 @@ exports[`createJSONSchemaPatchOperations 1`] = `
     },
   },
   {
-    "op": "replace",
-    "path": "/properties/fees/properties/fee_tokens/items/$ref",
-    "value": "#/$defs/feeToken",
-  },
-  {
-    "op": "replace",
-    "path": "/properties/staking/properties/staking_tokens/items/$ref",
-    "value": "#/$defs/stakingToken",
+    "op": "renameProperty",
+    "path": "/properties/images/items",
+    "value": {
+      "newName": "imageSync",
+      "oldName": "image_sync",
+    },
   },
   {
     "op": "renameProperty",
@@ -341,6 +1076,16 @@ exports[`createJSONSchemaPatchOperations 1`] = `
     },
   },
   {
+    "op": "rename",
+    "path": "/$defs/fee_token",
+    "value": "feeToken",
+  },
+  {
+    "op": "rename",
+    "path": "/$defs/staking_token",
+    "value": "stakingToken",
+  },
+  {
     "op": "renameProperty",
     "path": "",
     "value": {
@@ -453,14 +1198,14 @@ exports[`createJSONSchemaPatchOperations 1`] = `
     },
   },
   {
-    "op": "rename",
-    "path": "/$defs/fee_token",
-    "value": "feeToken",
+    "op": "replace",
+    "path": "/properties/fees/properties/feeTokens/items/$ref",
+    "value": "#/$defs/feeToken",
   },
   {
-    "op": "rename",
-    "path": "/$defs/staking_token",
-    "value": "stakingToken",
+    "op": "replace",
+    "path": "/properties/staking/properties/stakingTokens/items/$ref",
+    "value": "#/$defs/stakingToken",
   },
 ]
 `;
@@ -698,9 +1443,19 @@ exports[`findAllProps 1`] = `
     "type": "$ref",
   },
   {
+    "name": "items",
+    "path": "/properties/fees/properties/fee_tokens/items",
+    "type": "property",
+  },
+  {
     "name": "#/$defs/staking_token",
     "path": "/properties/staking/properties/staking_tokens/items",
     "type": "$ref",
+  },
+  {
+    "name": "items",
+    "path": "/properties/staking/properties/staking_tokens/items",
+    "type": "property",
   },
   {
     "name": "items",
@@ -721,6 +1476,11 @@ exports[`findAllProps 1`] = `
     "name": "#/$defs/pointer",
     "path": "/properties/images/items/properties/image_sync",
     "type": "$ref",
+  },
+  {
+    "name": "image_sync",
+    "path": "/properties/images/items/properties/image_sync",
+    "type": "property",
   },
   {
     "name": "png",
@@ -753,9 +1513,19 @@ exports[`findAllProps 1`] = `
     "type": "$ref",
   },
   {
+    "name": "items",
+    "path": "/properties/peers/properties/seeds/items",
+    "type": "property",
+  },
+  {
     "name": "#/$defs/peer",
     "path": "/properties/peers/properties/persistent_peers/items",
     "type": "$ref",
+  },
+  {
+    "name": "items",
+    "path": "/properties/peers/properties/persistent_peers/items",
+    "type": "property",
   },
   {
     "name": "#/$defs/endpoint",
@@ -763,9 +1533,19 @@ exports[`findAllProps 1`] = `
     "type": "$ref",
   },
   {
+    "name": "items",
+    "path": "/properties/apis/properties/rpc/items",
+    "type": "property",
+  },
+  {
     "name": "#/$defs/endpoint",
     "path": "/properties/apis/properties/rest/items",
     "type": "$ref",
+  },
+  {
+    "name": "items",
+    "path": "/properties/apis/properties/rest/items",
+    "type": "property",
   },
   {
     "name": "#/$defs/endpoint",
@@ -773,9 +1553,19 @@ exports[`findAllProps 1`] = `
     "type": "$ref",
   },
   {
+    "name": "items",
+    "path": "/properties/apis/properties/grpc/items",
+    "type": "property",
+  },
+  {
     "name": "#/$defs/endpoint",
     "path": "/properties/apis/properties/wss/items",
     "type": "$ref",
+  },
+  {
+    "name": "items",
+    "path": "/properties/apis/properties/wss/items",
+    "type": "property",
   },
   {
     "name": "#/$defs/endpoint",
@@ -783,9 +1573,19 @@ exports[`findAllProps 1`] = `
     "type": "$ref",
   },
   {
+    "name": "items",
+    "path": "/properties/apis/properties/grpc-web/items",
+    "type": "property",
+  },
+  {
     "name": "#/$defs/endpoint",
     "path": "/properties/apis/properties/evm-http-jsonrpc/items",
     "type": "$ref",
+  },
+  {
+    "name": "items",
+    "path": "/properties/apis/properties/evm-http-jsonrpc/items",
+    "type": "property",
   },
   {
     "name": "bech32PrefixAccAddr",
@@ -1066,6 +1866,11 @@ exports[`findAllProps 1`] = `
     "name": "#/$defs/explorer",
     "path": "/properties/explorers/items",
     "type": "$ref",
+  },
+  {
+    "name": "items",
+    "path": "/properties/explorers/items",
+    "type": "property",
   },
   {
     "name": "items",

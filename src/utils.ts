@@ -24,6 +24,14 @@ function sortByDeepestPath(propertyPaths: PropertyPath[]): PropertyPath[] {
   });
 }
 
+function sortOpsByDeepestPath(propertyPaths: JSONSchemaPatchOperation[]): JSONSchemaPatchOperation[] {
+  return propertyPaths.sort((a, b) => {
+    const depthA = a.path.split('/').length;
+    const depthB = b.path.split('/').length;
+    return depthB - depthA; // Descending order
+  });
+}
+
 function findProps(schema: JSONSchema, currentPath: string = ''): PropertyPath[] {
   let paths: PropertyPath[] = [];
   const name = basename(currentPath);
@@ -35,6 +43,7 @@ function findProps(schema: JSONSchema, currentPath: string = ''): PropertyPath[]
       paths.push({ type: '$def', path: currentPath, name });
     } else if (schema.$ref) {
       paths.push({ type: '$ref', path: currentPath, name: schema.$ref });
+      paths.push({ type: 'property', path: currentPath, name });
     } else {
       paths.push({ type: 'property', path: currentPath, name });
     }
@@ -73,7 +82,7 @@ export function findAllProps(schema: JSONSchema, currentPath: string = ''): Prop
 }
 
 export function createJSONSchemaPatchOperations(propertyPaths: PropertyPath[], transform: TransformFunction): JSONSchemaPatchOperation[] {
-  return propertyPaths.map(propertyPath => {
+  const ops = propertyPaths.map(propertyPath => {
     switch (propertyPath.type) {
       case 'property':
         return createRenamePropertyOperation(propertyPath, transform);
@@ -85,6 +94,14 @@ export function createJSONSchemaPatchOperations(propertyPaths: PropertyPath[], t
         throw new Error(`Unknown property type: ${propertyPath.type}`);
     }
   }).filter(Boolean);
+  const final = sortOpsByDeepestPath(ops);
+  const replaces = final.filter(o => o.op === 'replace');
+  const rest = final.filter(o => o.op !== 'replace');
+  return [
+    ...rest,
+    ...replaces
+  ];
+
 }
 
 function createRenamePropertyOperation(propertyPath: PropertyPath, transform: TransformFunction): JSONSchemaPatchOperation {
@@ -106,7 +123,7 @@ function createReplaceRefOperation(propertyPath: PropertyPath, transform: Transf
   if (newRef === propertyPath.name) return;
   return {
     op: 'replace',
-    path: propertyPath.path + '/$ref',
+    path: transformJsonPath(propertyPath.path + '/$ref', transform),
     value: newRef
   };
 }
@@ -123,7 +140,7 @@ function createReplaceDefOperation(propertyPath: PropertyPath, transform: Transf
 }
 
 function transformJsonPath(path: string, transformFunc: (str: string) => string): string {
-  const specialKeywords = ['#', '$defs', 'definitions', 'properties'];
+  const specialKeywords = ['#', '$defs', '$ref', 'definitions', 'properties'];
   return path.split('/').map(segment => {
     const normalizedSegment = segment.replace(/^#/, '');
     if (specialKeywords.includes(normalizedSegment) || !isSimpleKey(segment)) {
