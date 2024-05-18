@@ -145,7 +145,7 @@ exports[`JSONSchemaPatch transformer w excludes 1`] = `
     "apis": {
       "additionalProperties": false,
       "properties": {
-        "evm-http-jsonrpc": {
+        "evmHttpJsonrpc": {
           "items": {
             "$ref": "#/$defs/endpoint",
           },
@@ -157,7 +157,7 @@ exports[`JSONSchemaPatch transformer w excludes 1`] = `
           },
           "type": "array",
         },
-        "grpc-web": {
+        "grpcWeb": {
           "items": {
             "$ref": "#/$defs/endpoint",
           },

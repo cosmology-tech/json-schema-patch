@@ -15,6 +15,7 @@ export interface PropertyPath {
 }
 
 export type TransformFunction = (str: string) => string;
+export type BooleanFunction = (str: string) => boolean;
 
 function sortByDeepestPath(propertyPaths: PropertyPath[]): PropertyPath[] {
   return propertyPaths.sort((a, b) => {
@@ -90,15 +91,19 @@ export function findAllProps(schema: JSONSchema, currentPath: string = ''): Prop
   return sortByDeepestPath(findProps(schema, currentPath));
 }
 
-export function createJSONSchemaPatchOperations(propertyPaths: PropertyPath[], transform: TransformFunction): JSONSchemaPatchOperation[] {
+export function createJSONSchemaPatchOperations(
+  propertyPaths: PropertyPath[],
+  transform: TransformFunction,
+  transformTest: BooleanFunction
+): JSONSchemaPatchOperation[] {
   const ops = propertyPaths.map(propertyPath => {
     switch (propertyPath.type) {
       case 'property':
-        return createRenamePropertyOperation(propertyPath, transform);
+        return createRenamePropertyOperation(propertyPath, transform, transformTest);
       case '$def':
-        return createReplaceDefOperation(propertyPath, transform);
+        return createReplaceDefOperation(propertyPath, transform, transformTest);
       case '$ref':
-        return createReplaceRefOperation(propertyPath, transform);
+        return createReplaceRefOperation(propertyPath, transform, transformTest);
       default:
         throw new Error(`Unknown property type: ${propertyPath.type}`);
     }
@@ -113,12 +118,16 @@ export function createJSONSchemaPatchOperations(propertyPaths: PropertyPath[], t
 
 }
 
-function createRenamePropertyOperation(propertyPath: PropertyPath, transform: TransformFunction): JSONSchemaPatchOperation {
+function createRenamePropertyOperation(
+  propertyPath: PropertyPath,
+  transform: TransformFunction,
+  transformTest: BooleanFunction
+): JSONSchemaPatchOperation {
   const grandParent = dirname(dirname(propertyPath.path));
   const oldName = basename(propertyPath.path);
   const newName = transform(oldName);
 
-  if (!isSimpleKey(oldName) || oldName === newName) return;
+  if (!transformTest(oldName) || oldName === newName) return;
 
   return {
     op: 'renameProperty',
@@ -127,44 +136,54 @@ function createRenamePropertyOperation(propertyPath: PropertyPath, transform: Tr
   };
 }
 
-function createReplaceRefOperation(propertyPath: PropertyPath, transform: TransformFunction): JSONSchemaPatchOperation {
-  const newRef = transformJsonPath(propertyPath.name, transform);
+function createReplaceRefOperation(
+  propertyPath: PropertyPath,
+  transform: TransformFunction,
+  transformTest: BooleanFunction
+): JSONSchemaPatchOperation {
+  const newRef = transformJsonPath(propertyPath.name, transform, transformTest);
   if (newRef === propertyPath.name) return;
   return {
     op: 'replace',
-    path: transformJsonPath(propertyPath.path + '/$ref', transform),
+    path: transformJsonPath(propertyPath.path + '/$ref', transform, transformTest),
     value: newRef
   };
 }
 
-function createReplaceDefOperation(propertyPath: PropertyPath, transform: TransformFunction): JSONSchemaPatchOperation {
+function createReplaceDefOperation(
+  propertyPath: PropertyPath,
+  transform: TransformFunction,
+  transformTest: BooleanFunction
+): JSONSchemaPatchOperation {
   const oldName = basename(propertyPath.path);
   const newName = transform(oldName);
-  if (!isSimpleKey(oldName) || oldName === newName) return;
+  if (!transformTest(oldName) || oldName === newName) return;
   return {
     op: 'rename',
     path: propertyPath.path,
-    value: transformJsonPath(propertyPath.name, transform)
+    value: transformJsonPath(propertyPath.name, transform, transformTest)
   };
 }
 
-function transformJsonPath(path: string, transformFunc: (str: string) => string): string {
+function transformJsonPath(
+  path: string,
+  transform: TransformFunction,
+  transformTest: BooleanFunction
+): string {
   const specialKeywords = ['#', '$defs', '$ref', 'definitions', 'properties'];
   return path.split('/').map(segment => {
     const normalizedSegment = segment.replace(/^#/, '');
-    if (specialKeywords.includes(normalizedSegment) || !isSimpleKey(segment)) {
+    if (specialKeywords.includes(normalizedSegment) || !transformTest(segment)) {
       return segment;
     }
-    return transformFunc(segment);
+    return transform(segment);
   }).join('/');
 }
 
 // MARKED AS NOT DRY
-// from strfy-js
-export function isSimpleKey(key: string): boolean {
-  return /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(key);
-}
 
+
+// from strfy-js
 export function dirname(path: string): string {
   return path.replace(/\/[^\/]*$/, ''); // Removes last segment after the last '/'
 }

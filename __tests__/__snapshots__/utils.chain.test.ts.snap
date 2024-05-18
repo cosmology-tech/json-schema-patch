@@ -145,7 +145,7 @@ exports[`JSONSchemaPatch transformer 1`] = `
     "apis": {
       "additionalProperties": false,
       "properties": {
-        "evm-http-jsonrpc": {
+        "evmHttpJsonrpc": {
           "items": {
             "$ref": "#/$defs/endpoint",
           },
@@ -157,7 +157,7 @@ exports[`JSONSchemaPatch transformer 1`] = `
           },
           "type": "array",
         },
-        "grpc-web": {
+        "grpcWeb": {
           "items": {
             "$ref": "#/$defs/endpoint",
           },
@@ -1001,6 +1001,22 @@ exports[`createJSONSchemaPatchOperations 1`] = `
     "value": {
       "newName": "persistentPeers",
       "oldName": "persistent_peers",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/apis",
+    "value": {
+      "newName": "grpcWeb",
+      "oldName": "grpc-web",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/apis",
+    "value": {
+      "newName": "evmHttpJsonrpc",
+      "oldName": "evm-http-jsonrpc",
     },
   },
   {

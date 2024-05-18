@@ -1,5 +1,5 @@
 import { applyPatch, Operation } from 'fast-json-patch';
-import { createJSONSchemaPatchOperations, dirname, findAllProps, TransformFunction } from './utils';
+import { BooleanFunction, createJSONSchemaPatchOperations, dirname, findAllProps, TransformFunction } from './utils';
 
 export interface JSONSchemaPatchOperation {
   op: 'add' | 'remove' | 'replace' | 'rename' | 'addProperty' | 'removeProperty' | 'renameProperty' | 'addDefinition' | 'removeDefinition';
@@ -62,10 +62,10 @@ export class JSONSchemaPatch {
     this.ops.push(op);
   }
 
-  transform(transformFunction: TransformFunction): void {
+  transform(transformFunction: TransformFunction, transformTest: BooleanFunction): void {
     this.ops = [
       ...this.ops,
-      ...createJSONSchemaPatchOperations(findAllProps(this.schema), transformFunction)
+      ...createJSONSchemaPatchOperations(findAllProps(this.schema), transformFunction, transformTest)
     ];
   }
 
