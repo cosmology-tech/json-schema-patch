@@ -1,4 +1,4 @@
-import { TransformFunction } from './utils';
+import { BooleanFunction, TransformFunction } from './utils';
 export interface JSONSchemaPatchOperation {
     op: 'add' | 'remove' | 'replace' | 'rename' | 'addProperty' | 'removeProperty' | 'renameProperty' | 'addDefinition' | 'removeDefinition';
     path: string;
@@ -10,7 +10,7 @@ export declare class JSONSchemaPatch {
     private ops;
     constructor(schema: any);
     prepareOperation(op: JSONSchemaPatchOperation): void;
-    transform(transformFunction: TransformFunction): void;
+    transform(transformFunction: TransformFunction, transformTest: BooleanFunction): void;
     applyPatch(): any;
     addDefinition(name: string, definition: any): void;
     removeDefinition(name: string): void;
