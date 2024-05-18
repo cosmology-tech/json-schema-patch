@@ -1,7 +1,8 @@
 import { applyPatch, Operation } from 'fast-json-patch';
+import { createJSONSchemaPatchOperations, dirname, findAllProps, TransformFunction } from './utils';
 
 export interface JSONSchemaPatchOperation {
-  op: 'add' | 'remove' | 'replace' | 'addProperty' | 'removeProperty' | 'renameProperty' | 'addDefinition' | 'removeDefinition';
+  op: 'add' | 'remove' | 'replace' | 'rename' | 'addProperty' | 'removeProperty' | 'renameProperty' | 'addDefinition' | 'removeDefinition';
   path: string;
   value?: any;
 }
@@ -61,6 +62,13 @@ export class JSONSchemaPatch {
     this.ops.push(op);
   }
 
+  transform(transformFunction: TransformFunction): void {
+    this.ops = [
+      ...this.ops,
+      ...createJSONSchemaPatchOperations(findAllProps(this.schema), transformFunction)
+    ];
+  }
+
   // Apply all accumulated operations
   applyPatch(): any {
     const ops = expandOperations(this.ops);
@@ -74,6 +82,9 @@ export class JSONSchemaPatch {
           break;
         case 'renameProperty':
           this.renameProperty(op.path, op.value.oldName, op.value.newName);
+          break;
+        case 'rename':
+          this.rename(op.path, op.value);
           break;
         case 'addDefinition':
           this.addDefinition(op.path, op.value);
@@ -183,6 +194,15 @@ export class JSONSchemaPatch {
       applyPatch(this.schema, [{ op: 'remove', path: propertyPath }]);
       applyPatch(this.schema, [{ op: 'add', path: newPath, value: propertyValue }]);
       this.updateRequiredField(path, oldName, newName);
+    }
+  }
+
+  rename(path: string, value: string): void {
+    const newPath = sanitizeJsonPath(`${dirname(path)}/${value}`);
+    const currentValue = getValueAtPath(this.schema, path);
+    if (currentValue) {
+      applyPatch(this.schema, [{ op: 'remove', path }]);
+      applyPatch(this.schema, [{ op: 'add', path: newPath, value: currentValue }]);
     }
   }
 

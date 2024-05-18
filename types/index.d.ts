@@ -3,6 +3,7 @@ export interface JSONSchemaPatchOperation {
     path: string;
     value?: any;
 }
+export declare function expandOperations(operations: JSONSchemaPatchOperation[]): JSONSchemaPatchOperation[];
 export declare class JSONSchemaPatch {
     schema: any;
     private ops;

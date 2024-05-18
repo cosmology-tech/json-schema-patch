@@ -1,0 +1,1246 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createJSONSchemaPatchOperations 1`] = `
+[
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase/properties/versions/items",
+    "value": {
+      "newName": "previousVersionName",
+      "oldName": "previous_version_name",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase/properties/versions/items",
+    "value": {
+      "newName": "nextVersionName",
+      "oldName": "next_version_name",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase/properties/versions/items",
+    "value": {
+      "newName": "recommendedVersion",
+      "oldName": "recommended_version",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase/properties/versions/items",
+    "value": {
+      "newName": "goVersion",
+      "oldName": "go_version",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase/properties/versions/items",
+    "value": {
+      "newName": "compatibleVersions",
+      "oldName": "compatible_versions",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase/properties/versions/items",
+    "value": {
+      "newName": "cosmosSdkVersion",
+      "oldName": "cosmos_sdk_version",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase/properties/versions/items",
+    "value": {
+      "newName": "cosmwasmVersion",
+      "oldName": "cosmwasm_version",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase/properties/versions/items",
+    "value": {
+      "newName": "cosmwasmEnabled",
+      "oldName": "cosmwasm_enabled",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase/properties/versions/items",
+    "value": {
+      "newName": "cosmwasmPath",
+      "oldName": "cosmwasm_path",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase/properties/versions/items",
+    "value": {
+      "newName": "ibcGoVersion",
+      "oldName": "ibc_go_version",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase/properties/versions/items",
+    "value": {
+      "newName": "icsEnabled",
+      "oldName": "ics_enabled",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/images/items/properties/theme",
+    "value": {
+      "newName": "primaryColorHex",
+      "oldName": "primary_color_hex",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/images/items/properties/theme",
+    "value": {
+      "newName": "darkMode",
+      "oldName": "dark_mode",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase/properties/genesis",
+    "value": {
+      "newName": "genesisUrl",
+      "oldName": "genesis_url",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase/properties/genesis",
+    "value": {
+      "newName": "icsCcvUrl",
+      "oldName": "ics_ccv_url",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/fee_token/properties/gas_costs",
+    "value": {
+      "newName": "cosmosSend",
+      "oldName": "cosmos_send",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/fee_token/properties/gas_costs",
+    "value": {
+      "newName": "ibcTransfer",
+      "oldName": "ibc_transfer",
+    },
+  },
+  {
+    "op": "replace",
+    "path": "/properties/fees/properties/fee_tokens/items/$ref",
+    "value": "#/$defs/feeToken",
+  },
+  {
+    "op": "replace",
+    "path": "/properties/staking/properties/staking_tokens/items/$ref",
+    "value": "#/$defs/stakingToken",
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/images/items",
+    "value": {
+      "newName": "textPosition",
+      "oldName": "text_position",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/fees",
+    "value": {
+      "newName": "feeTokens",
+      "oldName": "fee_tokens",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/staking",
+    "value": {
+      "newName": "stakingTokens",
+      "oldName": "staking_tokens",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/staking",
+    "value": {
+      "newName": "lockDuration",
+      "oldName": "lock_duration",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase",
+    "value": {
+      "newName": "gitRepo",
+      "oldName": "git_repo",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase",
+    "value": {
+      "newName": "recommendedVersion",
+      "oldName": "recommended_version",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase",
+    "value": {
+      "newName": "goVersion",
+      "oldName": "go_version",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase",
+    "value": {
+      "newName": "compatibleVersions",
+      "oldName": "compatible_versions",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase",
+    "value": {
+      "newName": "cosmosSdkVersion",
+      "oldName": "cosmos_sdk_version",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase",
+    "value": {
+      "newName": "cosmwasmVersion",
+      "oldName": "cosmwasm_version",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase",
+    "value": {
+      "newName": "cosmwasmEnabled",
+      "oldName": "cosmwasm_enabled",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase",
+    "value": {
+      "newName": "cosmwasmPath",
+      "oldName": "cosmwasm_path",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase",
+    "value": {
+      "newName": "ibcGoVersion",
+      "oldName": "ibc_go_version",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/codebase",
+    "value": {
+      "newName": "icsEnabled",
+      "oldName": "ics_enabled",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/properties/peers",
+    "value": {
+      "newName": "persistentPeers",
+      "oldName": "persistent_peers",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/explorer",
+    "value": {
+      "newName": "txPage",
+      "oldName": "tx_page",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/explorer",
+    "value": {
+      "newName": "accountPage",
+      "oldName": "account_page",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/fee_token",
+    "value": {
+      "newName": "fixedMinGasPrice",
+      "oldName": "fixed_min_gas_price",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/fee_token",
+    "value": {
+      "newName": "lowGasPrice",
+      "oldName": "low_gas_price",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/fee_token",
+    "value": {
+      "newName": "averageGasPrice",
+      "oldName": "average_gas_price",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/fee_token",
+    "value": {
+      "newName": "highGasPrice",
+      "oldName": "high_gas_price",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/fee_token",
+    "value": {
+      "newName": "gasCosts",
+      "oldName": "gas_costs",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/pointer",
+    "value": {
+      "newName": "chainName",
+      "oldName": "chain_name",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/pointer",
+    "value": {
+      "newName": "baseDenom",
+      "oldName": "base_denom",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "",
+    "value": {
+      "newName": "chainName",
+      "oldName": "chain_name",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "",
+    "value": {
+      "newName": "chainId",
+      "oldName": "chain_id",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "",
+    "value": {
+      "newName": "preForkChainName",
+      "oldName": "pre_fork_chain_name",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "",
+    "value": {
+      "newName": "prettyName",
+      "oldName": "pretty_name",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "",
+    "value": {
+      "newName": "updateLink",
+      "oldName": "update_link",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "",
+    "value": {
+      "newName": "networkType",
+      "oldName": "network_type",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "",
+    "value": {
+      "newName": "bech32Prefix",
+      "oldName": "bech32_prefix",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "",
+    "value": {
+      "newName": "bech32Config",
+      "oldName": "bech32_config",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "",
+    "value": {
+      "newName": "daemonName",
+      "oldName": "daemon_name",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "",
+    "value": {
+      "newName": "nodeHome",
+      "oldName": "node_home",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "",
+    "value": {
+      "newName": "keyAlgos",
+      "oldName": "key_algos",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "",
+    "value": {
+      "newName": "alternativeSlip44s",
+      "oldName": "alternative_slip44s",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "",
+    "value": {
+      "newName": "logoURIs",
+      "oldName": "logo_URIs",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "",
+    "value": {
+      "newName": "extraCodecs",
+      "oldName": "extra_codecs",
+    },
+  },
+  {
+    "op": "rename",
+    "path": "/$defs/fee_token",
+    "value": "feeToken",
+  },
+  {
+    "op": "rename",
+    "path": "/$defs/staking_token",
+    "value": "stakingToken",
+  },
+]
+`;
+
+exports[`findAllProps 1`] = `
+[
+  {
+    "name": "amd64",
+    "path": "/properties/codebase/properties/versions/items/properties/binaries/properties/linux/amd64",
+    "type": "property",
+  },
+  {
+    "name": "arm64",
+    "path": "/properties/codebase/properties/versions/items/properties/binaries/properties/linux/arm64",
+    "type": "property",
+  },
+  {
+    "name": "amd64",
+    "path": "/properties/codebase/properties/versions/items/properties/binaries/properties/darwin/amd64",
+    "type": "property",
+  },
+  {
+    "name": "arm64",
+    "path": "/properties/codebase/properties/versions/items/properties/binaries/properties/darwin/arm64",
+    "type": "property",
+  },
+  {
+    "name": "amd64",
+    "path": "/properties/codebase/properties/versions/items/properties/binaries/properties/windows/amd64",
+    "type": "property",
+  },
+  {
+    "name": "arm64",
+    "path": "/properties/codebase/properties/versions/items/properties/binaries/properties/windows/arm64",
+    "type": "property",
+  },
+  {
+    "name": "type",
+    "path": "/properties/codebase/properties/versions/items/properties/consensus/properties/type",
+    "type": "property",
+  },
+  {
+    "name": "version",
+    "path": "/properties/codebase/properties/versions/items/properties/consensus/properties/version",
+    "type": "property",
+  },
+  {
+    "name": "items",
+    "path": "/properties/codebase/properties/versions/items/properties/compatible_versions/items",
+    "type": "property",
+  },
+  {
+    "name": "items",
+    "path": "/properties/codebase/properties/versions/items/properties/ics_enabled/items",
+    "type": "property",
+  },
+  {
+    "name": "amd64",
+    "path": "/properties/codebase/properties/binaries/properties/linux/amd64",
+    "type": "property",
+  },
+  {
+    "name": "arm64",
+    "path": "/properties/codebase/properties/binaries/properties/linux/arm64",
+    "type": "property",
+  },
+  {
+    "name": "amd64",
+    "path": "/properties/codebase/properties/binaries/properties/darwin/amd64",
+    "type": "property",
+  },
+  {
+    "name": "arm64",
+    "path": "/properties/codebase/properties/binaries/properties/darwin/arm64",
+    "type": "property",
+  },
+  {
+    "name": "amd64",
+    "path": "/properties/codebase/properties/binaries/properties/windows/amd64",
+    "type": "property",
+  },
+  {
+    "name": "arm64",
+    "path": "/properties/codebase/properties/binaries/properties/windows/arm64",
+    "type": "property",
+  },
+  {
+    "name": "name",
+    "path": "/properties/codebase/properties/versions/items/properties/name",
+    "type": "property",
+  },
+  {
+    "name": "tag",
+    "path": "/properties/codebase/properties/versions/items/properties/tag",
+    "type": "property",
+  },
+  {
+    "name": "height",
+    "path": "/properties/codebase/properties/versions/items/properties/height",
+    "type": "property",
+  },
+  {
+    "name": "proposal",
+    "path": "/properties/codebase/properties/versions/items/properties/proposal",
+    "type": "property",
+  },
+  {
+    "name": "previous_version_name",
+    "path": "/properties/codebase/properties/versions/items/properties/previous_version_name",
+    "type": "property",
+  },
+  {
+    "name": "next_version_name",
+    "path": "/properties/codebase/properties/versions/items/properties/next_version_name",
+    "type": "property",
+  },
+  {
+    "name": "recommended_version",
+    "path": "/properties/codebase/properties/versions/items/properties/recommended_version",
+    "type": "property",
+  },
+  {
+    "name": "go_version",
+    "path": "/properties/codebase/properties/versions/items/properties/go_version",
+    "type": "property",
+  },
+  {
+    "name": "compatible_versions",
+    "path": "/properties/codebase/properties/versions/items/properties/compatible_versions",
+    "type": "property",
+  },
+  {
+    "name": "cosmos_sdk_version",
+    "path": "/properties/codebase/properties/versions/items/properties/cosmos_sdk_version",
+    "type": "property",
+  },
+  {
+    "name": "consensus",
+    "path": "/properties/codebase/properties/versions/items/properties/consensus",
+    "type": "property",
+  },
+  {
+    "name": "cosmwasm_version",
+    "path": "/properties/codebase/properties/versions/items/properties/cosmwasm_version",
+    "type": "property",
+  },
+  {
+    "name": "cosmwasm_enabled",
+    "path": "/properties/codebase/properties/versions/items/properties/cosmwasm_enabled",
+    "type": "property",
+  },
+  {
+    "name": "cosmwasm_path",
+    "path": "/properties/codebase/properties/versions/items/properties/cosmwasm_path",
+    "type": "property",
+  },
+  {
+    "name": "ibc_go_version",
+    "path": "/properties/codebase/properties/versions/items/properties/ibc_go_version",
+    "type": "property",
+  },
+  {
+    "name": "ics_enabled",
+    "path": "/properties/codebase/properties/versions/items/properties/ics_enabled",
+    "type": "property",
+  },
+  {
+    "name": "binaries",
+    "path": "/properties/codebase/properties/versions/items/properties/binaries",
+    "type": "property",
+  },
+  {
+    "name": "primary_color_hex",
+    "path": "/properties/images/items/properties/theme/properties/primary_color_hex",
+    "type": "property",
+  },
+  {
+    "name": "circle",
+    "path": "/properties/images/items/properties/theme/properties/circle",
+    "type": "property",
+  },
+  {
+    "name": "dark_mode",
+    "path": "/properties/images/items/properties/theme/properties/dark_mode",
+    "type": "property",
+  },
+  {
+    "name": "blocks",
+    "path": "/properties/staking/properties/lock_duration/properties/blocks",
+    "type": "property",
+  },
+  {
+    "name": "time",
+    "path": "/properties/staking/properties/lock_duration/properties/time",
+    "type": "property",
+  },
+  {
+    "name": "type",
+    "path": "/properties/codebase/properties/consensus/properties/type",
+    "type": "property",
+  },
+  {
+    "name": "version",
+    "path": "/properties/codebase/properties/consensus/properties/version",
+    "type": "property",
+  },
+  {
+    "name": "name",
+    "path": "/properties/codebase/properties/genesis/properties/name",
+    "type": "property",
+  },
+  {
+    "name": "genesis_url",
+    "path": "/properties/codebase/properties/genesis/properties/genesis_url",
+    "type": "property",
+  },
+  {
+    "name": "ics_ccv_url",
+    "path": "/properties/codebase/properties/genesis/properties/ics_ccv_url",
+    "type": "property",
+  },
+  {
+    "name": "cosmos_send",
+    "path": "/$defs/fee_token/properties/gas_costs/properties/cosmos_send",
+    "type": "property",
+  },
+  {
+    "name": "ibc_transfer",
+    "path": "/$defs/fee_token/properties/gas_costs/properties/ibc_transfer",
+    "type": "property",
+  },
+  {
+    "name": "#/$defs/fee_token",
+    "path": "/properties/fees/properties/fee_tokens/items",
+    "type": "$ref",
+  },
+  {
+    "name": "#/$defs/staking_token",
+    "path": "/properties/staking/properties/staking_tokens/items",
+    "type": "$ref",
+  },
+  {
+    "name": "items",
+    "path": "/properties/codebase/properties/compatible_versions/items",
+    "type": "property",
+  },
+  {
+    "name": "items",
+    "path": "/properties/codebase/properties/ics_enabled/items",
+    "type": "property",
+  },
+  {
+    "name": "items",
+    "path": "/properties/codebase/properties/versions/items",
+    "type": "property",
+  },
+  {
+    "name": "#/$defs/pointer",
+    "path": "/properties/images/items/properties/image_sync",
+    "type": "$ref",
+  },
+  {
+    "name": "png",
+    "path": "/properties/images/items/properties/png",
+    "type": "property",
+  },
+  {
+    "name": "svg",
+    "path": "/properties/images/items/properties/svg",
+    "type": "property",
+  },
+  {
+    "name": "theme",
+    "path": "/properties/images/items/properties/theme",
+    "type": "property",
+  },
+  {
+    "name": "layout",
+    "path": "/properties/images/items/properties/layout",
+    "type": "property",
+  },
+  {
+    "name": "text_position",
+    "path": "/properties/images/items/properties/text_position",
+    "type": "property",
+  },
+  {
+    "name": "#/$defs/peer",
+    "path": "/properties/peers/properties/seeds/items",
+    "type": "$ref",
+  },
+  {
+    "name": "#/$defs/peer",
+    "path": "/properties/peers/properties/persistent_peers/items",
+    "type": "$ref",
+  },
+  {
+    "name": "#/$defs/endpoint",
+    "path": "/properties/apis/properties/rpc/items",
+    "type": "$ref",
+  },
+  {
+    "name": "#/$defs/endpoint",
+    "path": "/properties/apis/properties/rest/items",
+    "type": "$ref",
+  },
+  {
+    "name": "#/$defs/endpoint",
+    "path": "/properties/apis/properties/grpc/items",
+    "type": "$ref",
+  },
+  {
+    "name": "#/$defs/endpoint",
+    "path": "/properties/apis/properties/wss/items",
+    "type": "$ref",
+  },
+  {
+    "name": "#/$defs/endpoint",
+    "path": "/properties/apis/properties/grpc-web/items",
+    "type": "$ref",
+  },
+  {
+    "name": "#/$defs/endpoint",
+    "path": "/properties/apis/properties/evm-http-jsonrpc/items",
+    "type": "$ref",
+  },
+  {
+    "name": "bech32PrefixAccAddr",
+    "path": "/properties/bech32_config/properties/bech32PrefixAccAddr",
+    "type": "property",
+  },
+  {
+    "name": "bech32PrefixAccPub",
+    "path": "/properties/bech32_config/properties/bech32PrefixAccPub",
+    "type": "property",
+  },
+  {
+    "name": "bech32PrefixValAddr",
+    "path": "/properties/bech32_config/properties/bech32PrefixValAddr",
+    "type": "property",
+  },
+  {
+    "name": "bech32PrefixValPub",
+    "path": "/properties/bech32_config/properties/bech32PrefixValPub",
+    "type": "property",
+  },
+  {
+    "name": "bech32PrefixConsAddr",
+    "path": "/properties/bech32_config/properties/bech32PrefixConsAddr",
+    "type": "property",
+  },
+  {
+    "name": "bech32PrefixConsPub",
+    "path": "/properties/bech32_config/properties/bech32PrefixConsPub",
+    "type": "property",
+  },
+  {
+    "name": "fee_tokens",
+    "path": "/properties/fees/properties/fee_tokens",
+    "type": "property",
+  },
+  {
+    "name": "staking_tokens",
+    "path": "/properties/staking/properties/staking_tokens",
+    "type": "property",
+  },
+  {
+    "name": "lock_duration",
+    "path": "/properties/staking/properties/lock_duration",
+    "type": "property",
+  },
+  {
+    "name": "git_repo",
+    "path": "/properties/codebase/properties/git_repo",
+    "type": "property",
+  },
+  {
+    "name": "recommended_version",
+    "path": "/properties/codebase/properties/recommended_version",
+    "type": "property",
+  },
+  {
+    "name": "go_version",
+    "path": "/properties/codebase/properties/go_version",
+    "type": "property",
+  },
+  {
+    "name": "compatible_versions",
+    "path": "/properties/codebase/properties/compatible_versions",
+    "type": "property",
+  },
+  {
+    "name": "binaries",
+    "path": "/properties/codebase/properties/binaries",
+    "type": "property",
+  },
+  {
+    "name": "cosmos_sdk_version",
+    "path": "/properties/codebase/properties/cosmos_sdk_version",
+    "type": "property",
+  },
+  {
+    "name": "consensus",
+    "path": "/properties/codebase/properties/consensus",
+    "type": "property",
+  },
+  {
+    "name": "cosmwasm_version",
+    "path": "/properties/codebase/properties/cosmwasm_version",
+    "type": "property",
+  },
+  {
+    "name": "cosmwasm_enabled",
+    "path": "/properties/codebase/properties/cosmwasm_enabled",
+    "type": "property",
+  },
+  {
+    "name": "cosmwasm_path",
+    "path": "/properties/codebase/properties/cosmwasm_path",
+    "type": "property",
+  },
+  {
+    "name": "ibc_go_version",
+    "path": "/properties/codebase/properties/ibc_go_version",
+    "type": "property",
+  },
+  {
+    "name": "ics_enabled",
+    "path": "/properties/codebase/properties/ics_enabled",
+    "type": "property",
+  },
+  {
+    "name": "genesis",
+    "path": "/properties/codebase/properties/genesis",
+    "type": "property",
+  },
+  {
+    "name": "versions",
+    "path": "/properties/codebase/properties/versions",
+    "type": "property",
+  },
+  {
+    "name": "png",
+    "path": "/properties/logo_URIs/properties/png",
+    "type": "property",
+  },
+  {
+    "name": "svg",
+    "path": "/properties/logo_URIs/properties/svg",
+    "type": "property",
+  },
+  {
+    "name": "seeds",
+    "path": "/properties/peers/properties/seeds",
+    "type": "property",
+  },
+  {
+    "name": "persistent_peers",
+    "path": "/properties/peers/properties/persistent_peers",
+    "type": "property",
+  },
+  {
+    "name": "rpc",
+    "path": "/properties/apis/properties/rpc",
+    "type": "property",
+  },
+  {
+    "name": "rest",
+    "path": "/properties/apis/properties/rest",
+    "type": "property",
+  },
+  {
+    "name": "grpc",
+    "path": "/properties/apis/properties/grpc",
+    "type": "property",
+  },
+  {
+    "name": "wss",
+    "path": "/properties/apis/properties/wss",
+    "type": "property",
+  },
+  {
+    "name": "grpc-web",
+    "path": "/properties/apis/properties/grpc-web",
+    "type": "property",
+  },
+  {
+    "name": "evm-http-jsonrpc",
+    "path": "/properties/apis/properties/evm-http-jsonrpc",
+    "type": "property",
+  },
+  {
+    "name": "id",
+    "path": "/$defs/peer/properties/id",
+    "type": "property",
+  },
+  {
+    "name": "address",
+    "path": "/$defs/peer/properties/address",
+    "type": "property",
+  },
+  {
+    "name": "provider",
+    "path": "/$defs/peer/properties/provider",
+    "type": "property",
+  },
+  {
+    "name": "address",
+    "path": "/$defs/endpoint/properties/address",
+    "type": "property",
+  },
+  {
+    "name": "provider",
+    "path": "/$defs/endpoint/properties/provider",
+    "type": "property",
+  },
+  {
+    "name": "archive",
+    "path": "/$defs/endpoint/properties/archive",
+    "type": "property",
+  },
+  {
+    "name": "kind",
+    "path": "/$defs/explorer/properties/kind",
+    "type": "property",
+  },
+  {
+    "name": "url",
+    "path": "/$defs/explorer/properties/url",
+    "type": "property",
+  },
+  {
+    "name": "tx_page",
+    "path": "/$defs/explorer/properties/tx_page",
+    "type": "property",
+  },
+  {
+    "name": "account_page",
+    "path": "/$defs/explorer/properties/account_page",
+    "type": "property",
+  },
+  {
+    "name": "denom",
+    "path": "/$defs/fee_token/properties/denom",
+    "type": "property",
+  },
+  {
+    "name": "fixed_min_gas_price",
+    "path": "/$defs/fee_token/properties/fixed_min_gas_price",
+    "type": "property",
+  },
+  {
+    "name": "low_gas_price",
+    "path": "/$defs/fee_token/properties/low_gas_price",
+    "type": "property",
+  },
+  {
+    "name": "average_gas_price",
+    "path": "/$defs/fee_token/properties/average_gas_price",
+    "type": "property",
+  },
+  {
+    "name": "high_gas_price",
+    "path": "/$defs/fee_token/properties/high_gas_price",
+    "type": "property",
+  },
+  {
+    "name": "gas_costs",
+    "path": "/$defs/fee_token/properties/gas_costs",
+    "type": "property",
+  },
+  {
+    "name": "denom",
+    "path": "/$defs/staking_token/properties/denom",
+    "type": "property",
+  },
+  {
+    "name": "chain_name",
+    "path": "/$defs/pointer/properties/chain_name",
+    "type": "property",
+  },
+  {
+    "name": "base_denom",
+    "path": "/$defs/pointer/properties/base_denom",
+    "type": "property",
+  },
+  {
+    "name": "items",
+    "path": "/properties/key_algos/items",
+    "type": "property",
+  },
+  {
+    "name": "items",
+    "path": "/properties/alternative_slip44s/items",
+    "type": "property",
+  },
+  {
+    "name": "items",
+    "path": "/properties/images/items",
+    "type": "property",
+  },
+  {
+    "name": "#/$defs/explorer",
+    "path": "/properties/explorers/items",
+    "type": "$ref",
+  },
+  {
+    "name": "items",
+    "path": "/properties/keywords/items",
+    "type": "property",
+  },
+  {
+    "name": "items",
+    "path": "/properties/extra_codecs/items",
+    "type": "property",
+  },
+  {
+    "name": "$schema",
+    "path": "/properties/$schema",
+    "type": "property",
+  },
+  {
+    "name": "chain_name",
+    "path": "/properties/chain_name",
+    "type": "property",
+  },
+  {
+    "name": "chain_id",
+    "path": "/properties/chain_id",
+    "type": "property",
+  },
+  {
+    "name": "pre_fork_chain_name",
+    "path": "/properties/pre_fork_chain_name",
+    "type": "property",
+  },
+  {
+    "name": "pretty_name",
+    "path": "/properties/pretty_name",
+    "type": "property",
+  },
+  {
+    "name": "website",
+    "path": "/properties/website",
+    "type": "property",
+  },
+  {
+    "name": "update_link",
+    "path": "/properties/update_link",
+    "type": "property",
+  },
+  {
+    "name": "status",
+    "path": "/properties/status",
+    "type": "property",
+  },
+  {
+    "name": "network_type",
+    "path": "/properties/network_type",
+    "type": "property",
+  },
+  {
+    "name": "bech32_prefix",
+    "path": "/properties/bech32_prefix",
+    "type": "property",
+  },
+  {
+    "name": "bech32_config",
+    "path": "/properties/bech32_config",
+    "type": "property",
+  },
+  {
+    "name": "daemon_name",
+    "path": "/properties/daemon_name",
+    "type": "property",
+  },
+  {
+    "name": "node_home",
+    "path": "/properties/node_home",
+    "type": "property",
+  },
+  {
+    "name": "key_algos",
+    "path": "/properties/key_algos",
+    "type": "property",
+  },
+  {
+    "name": "slip44",
+    "path": "/properties/slip44",
+    "type": "property",
+  },
+  {
+    "name": "alternative_slip44s",
+    "path": "/properties/alternative_slip44s",
+    "type": "property",
+  },
+  {
+    "name": "fees",
+    "path": "/properties/fees",
+    "type": "property",
+  },
+  {
+    "name": "staking",
+    "path": "/properties/staking",
+    "type": "property",
+  },
+  {
+    "name": "codebase",
+    "path": "/properties/codebase",
+    "type": "property",
+  },
+  {
+    "name": "images",
+    "path": "/properties/images",
+    "type": "property",
+  },
+  {
+    "name": "logo_URIs",
+    "path": "/properties/logo_URIs",
+    "type": "property",
+  },
+  {
+    "name": "description",
+    "path": "/properties/description",
+    "type": "property",
+  },
+  {
+    "name": "peers",
+    "path": "/properties/peers",
+    "type": "property",
+  },
+  {
+    "name": "apis",
+    "path": "/properties/apis",
+    "type": "property",
+  },
+  {
+    "name": "explorers",
+    "path": "/properties/explorers",
+    "type": "property",
+  },
+  {
+    "name": "keywords",
+    "path": "/properties/keywords",
+    "type": "property",
+  },
+  {
+    "name": "extra_codecs",
+    "path": "/properties/extra_codecs",
+    "type": "property",
+  },
+  {
+    "name": "peer",
+    "path": "/$defs/peer",
+    "type": "$def",
+  },
+  {
+    "name": "endpoint",
+    "path": "/$defs/endpoint",
+    "type": "$def",
+  },
+  {
+    "name": "explorer",
+    "path": "/$defs/explorer",
+    "type": "$def",
+  },
+  {
+    "name": "fee_token",
+    "path": "/$defs/fee_token",
+    "type": "$def",
+  },
+  {
+    "name": "staking_token",
+    "path": "/$defs/staking_token",
+    "type": "$def",
+  },
+  {
+    "name": "pointer",
+    "path": "/$defs/pointer",
+    "type": "$def",
+  },
+]
+`;

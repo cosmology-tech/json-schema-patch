@@ -1,0 +1,605 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createJSONSchemaPatchOperations 1`] = `
+[
+  {
+    "op": "renameProperty",
+    "path": "/$defs/asset/properties/images/items/properties/theme",
+    "value": {
+      "newName": "primaryColorHex",
+      "oldName": "primary_color_hex",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/asset/properties/images/items/properties/theme",
+    "value": {
+      "newName": "darkMode",
+      "oldName": "dark_mode",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/asset/properties/ibc",
+    "value": {
+      "newName": "sourceChannel",
+      "oldName": "source_channel",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/asset/properties/ibc",
+    "value": {
+      "newName": "dstChannel",
+      "oldName": "dst_channel",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/asset/properties/ibc",
+    "value": {
+      "newName": "sourceDenom",
+      "oldName": "source_denom",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/ibc_transition/properties/counterparty",
+    "value": {
+      "newName": "chainName",
+      "oldName": "chain_name",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/ibc_transition/properties/counterparty",
+    "value": {
+      "newName": "baseDenom",
+      "oldName": "base_denom",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/ibc_transition/properties/counterparty",
+    "value": {
+      "newName": "channelId",
+      "oldName": "channel_id",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/ibc_transition/properties/chain",
+    "value": {
+      "newName": "channelId",
+      "oldName": "channel_id",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/ibc_cw20_transition/properties/counterparty",
+    "value": {
+      "newName": "chainName",
+      "oldName": "chain_name",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/ibc_cw20_transition/properties/counterparty",
+    "value": {
+      "newName": "baseDenom",
+      "oldName": "base_denom",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/ibc_cw20_transition/properties/counterparty",
+    "value": {
+      "newName": "channelId",
+      "oldName": "channel_id",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/ibc_cw20_transition/properties/chain",
+    "value": {
+      "newName": "channelId",
+      "oldName": "channel_id",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/non_ibc_transition/properties/counterparty",
+    "value": {
+      "newName": "chainName",
+      "oldName": "chain_name",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/non_ibc_transition/properties/counterparty",
+    "value": {
+      "newName": "baseDenom",
+      "oldName": "base_denom",
+    },
+  },
+  {
+    "op": "replace",
+    "path": "/$defs/asset/properties/denom_units/items/$ref",
+    "value": "#/$defs/denomUnit",
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/asset",
+    "value": {
+      "newName": "extendedDescription",
+      "oldName": "extended_description",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/asset",
+    "value": {
+      "newName": "denomUnits",
+      "oldName": "denom_units",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/asset",
+    "value": {
+      "newName": "typeAsset",
+      "oldName": "type_asset",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/asset",
+    "value": {
+      "newName": "logoURIs",
+      "oldName": "logo_URIs",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/asset",
+    "value": {
+      "newName": "coingeckoId",
+      "oldName": "coingecko_id",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/pointer",
+    "value": {
+      "newName": "chainName",
+      "oldName": "chain_name",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "/$defs/pointer",
+    "value": {
+      "newName": "baseDenom",
+      "oldName": "base_denom",
+    },
+  },
+  {
+    "op": "renameProperty",
+    "path": "",
+    "value": {
+      "newName": "chainName",
+      "oldName": "chain_name",
+    },
+  },
+  {
+    "op": "rename",
+    "path": "/$defs/denom_unit",
+    "value": "denomUnit",
+  },
+  {
+    "op": "rename",
+    "path": "/$defs/ibc_transition",
+    "value": "ibcTransition",
+  },
+  {
+    "op": "rename",
+    "path": "/$defs/ibc_cw20_transition",
+    "value": "ibcCw20Transition",
+  },
+  {
+    "op": "rename",
+    "path": "/$defs/non_ibc_transition",
+    "value": "nonIbcTransition",
+  },
+]
+`;
+
+exports[`findAllProps 1`] = `
+[
+  {
+    "name": "primary_color_hex",
+    "path": "/$defs/asset/properties/images/items/properties/theme/properties/primary_color_hex",
+    "type": "property",
+  },
+  {
+    "name": "circle",
+    "path": "/$defs/asset/properties/images/items/properties/theme/properties/circle",
+    "type": "property",
+  },
+  {
+    "name": "dark_mode",
+    "path": "/$defs/asset/properties/images/items/properties/theme/properties/dark_mode",
+    "type": "property",
+  },
+  {
+    "name": "#/$defs/pointer",
+    "path": "/$defs/asset/properties/images/items/properties/image_sync",
+    "type": "$ref",
+  },
+  {
+    "name": "png",
+    "path": "/$defs/asset/properties/images/items/properties/png",
+    "type": "property",
+  },
+  {
+    "name": "svg",
+    "path": "/$defs/asset/properties/images/items/properties/svg",
+    "type": "property",
+  },
+  {
+    "name": "theme",
+    "path": "/$defs/asset/properties/images/items/properties/theme",
+    "type": "property",
+  },
+  {
+    "name": "source_channel",
+    "path": "/$defs/asset/properties/ibc/properties/source_channel",
+    "type": "property",
+  },
+  {
+    "name": "dst_channel",
+    "path": "/$defs/asset/properties/ibc/properties/dst_channel",
+    "type": "property",
+  },
+  {
+    "name": "source_denom",
+    "path": "/$defs/asset/properties/ibc/properties/source_denom",
+    "type": "property",
+  },
+  {
+    "name": "png",
+    "path": "/$defs/asset/properties/logo_URIs/properties/png",
+    "type": "property",
+  },
+  {
+    "name": "svg",
+    "path": "/$defs/asset/properties/logo_URIs/properties/svg",
+    "type": "property",
+  },
+  {
+    "name": "website",
+    "path": "/$defs/asset/properties/socials/properties/website",
+    "type": "property",
+  },
+  {
+    "name": "twitter",
+    "path": "/$defs/asset/properties/socials/properties/twitter",
+    "type": "property",
+  },
+  {
+    "name": "chain_name",
+    "path": "/$defs/ibc_transition/properties/counterparty/properties/chain_name",
+    "type": "property",
+  },
+  {
+    "name": "base_denom",
+    "path": "/$defs/ibc_transition/properties/counterparty/properties/base_denom",
+    "type": "property",
+  },
+  {
+    "name": "channel_id",
+    "path": "/$defs/ibc_transition/properties/counterparty/properties/channel_id",
+    "type": "property",
+  },
+  {
+    "name": "channel_id",
+    "path": "/$defs/ibc_transition/properties/chain/properties/channel_id",
+    "type": "property",
+  },
+  {
+    "name": "path",
+    "path": "/$defs/ibc_transition/properties/chain/properties/path",
+    "type": "property",
+  },
+  {
+    "name": "chain_name",
+    "path": "/$defs/ibc_cw20_transition/properties/counterparty/properties/chain_name",
+    "type": "property",
+  },
+  {
+    "name": "base_denom",
+    "path": "/$defs/ibc_cw20_transition/properties/counterparty/properties/base_denom",
+    "type": "property",
+  },
+  {
+    "name": "port",
+    "path": "/$defs/ibc_cw20_transition/properties/counterparty/properties/port",
+    "type": "property",
+  },
+  {
+    "name": "channel_id",
+    "path": "/$defs/ibc_cw20_transition/properties/counterparty/properties/channel_id",
+    "type": "property",
+  },
+  {
+    "name": "port",
+    "path": "/$defs/ibc_cw20_transition/properties/chain/properties/port",
+    "type": "property",
+  },
+  {
+    "name": "channel_id",
+    "path": "/$defs/ibc_cw20_transition/properties/chain/properties/channel_id",
+    "type": "property",
+  },
+  {
+    "name": "path",
+    "path": "/$defs/ibc_cw20_transition/properties/chain/properties/path",
+    "type": "property",
+  },
+  {
+    "name": "chain_name",
+    "path": "/$defs/non_ibc_transition/properties/counterparty/properties/chain_name",
+    "type": "property",
+  },
+  {
+    "name": "base_denom",
+    "path": "/$defs/non_ibc_transition/properties/counterparty/properties/base_denom",
+    "type": "property",
+  },
+  {
+    "name": "contract",
+    "path": "/$defs/non_ibc_transition/properties/counterparty/properties/contract",
+    "type": "property",
+  },
+  {
+    "name": "contract",
+    "path": "/$defs/non_ibc_transition/properties/chain/properties/contract",
+    "type": "property",
+  },
+  {
+    "name": "#/$defs/denom_unit",
+    "path": "/$defs/asset/properties/denom_units/items",
+    "type": "$ref",
+  },
+  {
+    "name": "items",
+    "path": "/$defs/asset/properties/traces/items",
+    "type": "property",
+  },
+  {
+    "name": "items",
+    "path": "/$defs/asset/properties/images/items",
+    "type": "property",
+  },
+  {
+    "name": "items",
+    "path": "/$defs/asset/properties/keywords/items",
+    "type": "property",
+  },
+  {
+    "name": "items",
+    "path": "/$defs/denom_unit/properties/aliases/items",
+    "type": "property",
+  },
+  {
+    "name": "deprecated",
+    "path": "/$defs/asset/properties/deprecated",
+    "type": "property",
+  },
+  {
+    "name": "description",
+    "path": "/$defs/asset/properties/description",
+    "type": "property",
+  },
+  {
+    "name": "extended_description",
+    "path": "/$defs/asset/properties/extended_description",
+    "type": "property",
+  },
+  {
+    "name": "denom_units",
+    "path": "/$defs/asset/properties/denom_units",
+    "type": "property",
+  },
+  {
+    "name": "type_asset",
+    "path": "/$defs/asset/properties/type_asset",
+    "type": "property",
+  },
+  {
+    "name": "address",
+    "path": "/$defs/asset/properties/address",
+    "type": "property",
+  },
+  {
+    "name": "base",
+    "path": "/$defs/asset/properties/base",
+    "type": "property",
+  },
+  {
+    "name": "name",
+    "path": "/$defs/asset/properties/name",
+    "type": "property",
+  },
+  {
+    "name": "display",
+    "path": "/$defs/asset/properties/display",
+    "type": "property",
+  },
+  {
+    "name": "symbol",
+    "path": "/$defs/asset/properties/symbol",
+    "type": "property",
+  },
+  {
+    "name": "traces",
+    "path": "/$defs/asset/properties/traces",
+    "type": "property",
+  },
+  {
+    "name": "ibc",
+    "path": "/$defs/asset/properties/ibc",
+    "type": "property",
+  },
+  {
+    "name": "logo_URIs",
+    "path": "/$defs/asset/properties/logo_URIs",
+    "type": "property",
+  },
+  {
+    "name": "images",
+    "path": "/$defs/asset/properties/images",
+    "type": "property",
+  },
+  {
+    "name": "coingecko_id",
+    "path": "/$defs/asset/properties/coingecko_id",
+    "type": "property",
+  },
+  {
+    "name": "keywords",
+    "path": "/$defs/asset/properties/keywords",
+    "type": "property",
+  },
+  {
+    "name": "socials",
+    "path": "/$defs/asset/properties/socials",
+    "type": "property",
+  },
+  {
+    "name": "denom",
+    "path": "/$defs/denom_unit/properties/denom",
+    "type": "property",
+  },
+  {
+    "name": "exponent",
+    "path": "/$defs/denom_unit/properties/exponent",
+    "type": "property",
+  },
+  {
+    "name": "aliases",
+    "path": "/$defs/denom_unit/properties/aliases",
+    "type": "property",
+  },
+  {
+    "name": "chain_name",
+    "path": "/$defs/pointer/properties/chain_name",
+    "type": "property",
+  },
+  {
+    "name": "base_denom",
+    "path": "/$defs/pointer/properties/base_denom",
+    "type": "property",
+  },
+  {
+    "name": "type",
+    "path": "/$defs/ibc_transition/properties/type",
+    "type": "property",
+  },
+  {
+    "name": "counterparty",
+    "path": "/$defs/ibc_transition/properties/counterparty",
+    "type": "property",
+  },
+  {
+    "name": "chain",
+    "path": "/$defs/ibc_transition/properties/chain",
+    "type": "property",
+  },
+  {
+    "name": "type",
+    "path": "/$defs/ibc_cw20_transition/properties/type",
+    "type": "property",
+  },
+  {
+    "name": "counterparty",
+    "path": "/$defs/ibc_cw20_transition/properties/counterparty",
+    "type": "property",
+  },
+  {
+    "name": "chain",
+    "path": "/$defs/ibc_cw20_transition/properties/chain",
+    "type": "property",
+  },
+  {
+    "name": "type",
+    "path": "/$defs/non_ibc_transition/properties/type",
+    "type": "property",
+  },
+  {
+    "name": "counterparty",
+    "path": "/$defs/non_ibc_transition/properties/counterparty",
+    "type": "property",
+  },
+  {
+    "name": "chain",
+    "path": "/$defs/non_ibc_transition/properties/chain",
+    "type": "property",
+  },
+  {
+    "name": "provider",
+    "path": "/$defs/non_ibc_transition/properties/provider",
+    "type": "property",
+  },
+  {
+    "name": "#/$defs/asset",
+    "path": "/properties/assets/items",
+    "type": "$ref",
+  },
+  {
+    "name": "$schema",
+    "path": "/properties/$schema",
+    "type": "property",
+  },
+  {
+    "name": "chain_name",
+    "path": "/properties/chain_name",
+    "type": "property",
+  },
+  {
+    "name": "assets",
+    "path": "/properties/assets",
+    "type": "property",
+  },
+  {
+    "name": "asset",
+    "path": "/$defs/asset",
+    "type": "$def",
+  },
+  {
+    "name": "denom_unit",
+    "path": "/$defs/denom_unit",
+    "type": "$def",
+  },
+  {
+    "name": "pointer",
+    "path": "/$defs/pointer",
+    "type": "$def",
+  },
+  {
+    "name": "ibc_transition",
+    "path": "/$defs/ibc_transition",
+    "type": "$def",
+  },
+  {
+    "name": "ibc_cw20_transition",
+    "path": "/$defs/ibc_cw20_transition",
+    "type": "$def",
+  },
+  {
+    "name": "non_ibc_transition",
+    "path": "/$defs/non_ibc_transition",
+    "type": "$def",
+  },
+]
+`;
