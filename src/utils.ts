@@ -1,4 +1,4 @@
-import { JSONSchemaPatchOperation } from "src";
+import { JSONSchemaPatchOperation } from "./";
 
 interface JSONSchema {
   properties?: { [key: string]: JSONSchema };
