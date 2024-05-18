@@ -1508,6 +1508,16 @@ exports[`findAllProps 1`] = `
     "type": "property",
   },
   {
+    "name": "0",
+    "path": "/properties/images/items/anyOf/0",
+    "type": "property",
+  },
+  {
+    "name": "1",
+    "path": "/properties/images/items/anyOf/1",
+    "type": "property",
+  },
+  {
     "name": "#/$defs/peer",
     "path": "/properties/peers/properties/seeds/items",
     "type": "$ref",

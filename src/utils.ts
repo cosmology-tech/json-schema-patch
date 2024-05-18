@@ -74,6 +74,15 @@ function findProps(schema: JSONSchema, currentPath: string = ''): PropertyPath[]
     }
   }
 
+  // Process anyOf, allOf, and oneOf constructs
+  ['anyOf', 'allOf', 'oneOf'].forEach(key => {
+    if (schema[key]) {
+      schema[key].forEach((item, index) => {
+        paths = paths.concat(findProps(item, `${currentPath}/${key}/${index}`));
+      });
+    }
+  });
+
   return paths;
 }
 
